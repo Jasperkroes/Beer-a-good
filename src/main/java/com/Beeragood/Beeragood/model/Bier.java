@@ -10,12 +10,12 @@ public class Bier {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    int id;
+    private int id;
 
-    String naam;
+    private String naam;
     //foto
-    String afkomst;
-    double alcoholPercentage;
+    private  String afkomst;
+    private double alcoholPercentage;
 
     public Bier(int id, String naam, String afkomst, double alcoholPercentage) {
         this.id = id;
@@ -26,10 +26,6 @@ public class Bier {
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getNaam() {
