@@ -17,6 +17,8 @@ public class Bier {
     private  String afkomst;
     private double alcoholPercentage;
 
+    public Bier() {}
+
     public Bier(int id, String naam, String afkomst, double alcoholPercentage) {
         this.id = id;
         this.naam = naam;
