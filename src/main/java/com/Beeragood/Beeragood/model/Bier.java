@@ -13,17 +13,18 @@ public class Bier {
     private int id;
 
     private String naam;
-    //foto
     private  String afkomst;
     private double alcoholPercentage;
+    private String foto;
 
     public Bier() {}
 
-    public Bier(int id, String naam, String afkomst, double alcoholPercentage) {
+    public Bier(int id, String naam, String afkomst, double alcoholPercentage, String foto) {
         this.id = id;
         this.naam = naam;
         this.afkomst = afkomst;
         this.alcoholPercentage = alcoholPercentage;
+        this.foto = foto;
     }
 
     public int getId() {
@@ -54,6 +55,14 @@ public class Bier {
         this.alcoholPercentage = alcoholPercentage;
     }
 
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+
     @Override
     public String toString() {
         return "Bier{" +
@@ -64,4 +73,3 @@ public class Bier {
                 '}';
     }
 }
-
