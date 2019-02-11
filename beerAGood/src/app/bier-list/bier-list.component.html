@@ -1,5 +1,11 @@
 <h1>Lekkere biertjes!</h1>
-<select class="cusrom-select d-block w-100" id="state" required>
-  <option *ngFor="let biertje of biertjes">{{biertje.naam}}</option>
+
+<select [(ngModel)]="selectedBier">
+  <option *ngFor="let bier of biertjes" [ngValue]="bier">{{bier.naam}}</option>
 </select>
+
+<div *ngIf="selectedBier">
+  <img src='{{selectedBier.foto}}' height="150" width="100">
+</div>
+
 

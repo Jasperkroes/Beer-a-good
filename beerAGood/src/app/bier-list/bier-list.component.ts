@@ -9,6 +9,7 @@ import {BierServiceService} from "../bier-service.service";
 })
 export class BierListComponent implements OnInit {
 
+  selectedBier: Bier;
   biertjes: Bier[];
 
   constructor(private bierService: BierServiceService) { }
@@ -27,5 +28,4 @@ export class BierListComponent implements OnInit {
       }
     );
   }
-
 }
