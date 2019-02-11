@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { BierListComponent } from './bier-list/bier-list.component';
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BierListComponent
+    BierListComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
