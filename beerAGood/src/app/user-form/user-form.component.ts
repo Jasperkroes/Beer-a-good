@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {User} from "../User";
+import {UserServiceService} from "../user-service.service";
 
 @Component({
   selector: 'app-user-form',
@@ -12,6 +13,10 @@ export class UserFormComponent {
   password2: String;
 
   submitted = false;
+
+  constructor(private userService: UserServiceService) {
+  }
+
 
   onSubmit() {
     this.submitted = true;
@@ -28,5 +33,9 @@ export class UserFormComponent {
   toLogin() {
     this.submitted = false;
 
+  }
+
+  saveUser() {
+    this.userService.saveUser(this.model).subscribe();
   }
 }

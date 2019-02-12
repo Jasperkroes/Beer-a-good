@@ -76,7 +76,7 @@
       <div class="col-xs-9" type="password">{{ model.password}}</div>
     </div>
     <br>
-    <button class="btn btn-primary" routerLink="../bier" type="submit">Oké</button>
+    <button class="btn btn-primary" routerLink="../bier" type="submit" (click)="saveUser()">Oké</button>
     <button class="btn btn-primary" (click)="submitted = false">Edit user</button>
   </div>
 </div>
