@@ -6,11 +6,15 @@ import { AppComponent } from './app.component';
 import { BierListComponent } from './bier-list/bier-list.component';
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
+import {UserFormComponent} from "./user-form/user-form.component";
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BierListComponent
+    BierListComponent,
+    UserFormComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
