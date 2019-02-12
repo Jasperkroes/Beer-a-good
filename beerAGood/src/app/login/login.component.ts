@@ -10,6 +10,8 @@ import {User} from "../User";
 export class LoginComponent implements OnInit {
 
   user: User;
+  loggedInCorrect = false;
+  loggedInIncorrect = false;
 
   constructor(private userService: UserServiceService) { }
 
@@ -29,4 +31,17 @@ export class LoginComponent implements OnInit {
     return false;
   }
 
+  validateUser(value: string) {
+    //Todo: check if this value is a valid username in the db, also check if the password is correct
+    if(value === 'jappie') {
+      this.loggedInCorrect = true;
+    } else {
+      this.loggedInIncorrect = true;
+    }
+  }
+
+  resetFlags() {
+    this.loggedInIncorrect = false;
+    this.loggedInCorrect = false;
+  }
 }
