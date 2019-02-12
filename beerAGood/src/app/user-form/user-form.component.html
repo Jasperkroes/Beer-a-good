@@ -1,13 +1,14 @@
 <div class="container">
+  <button class="btn btn-lg btn-primary btn-block" type="submit" routerLink="">Fuck Go Back</button>
   <div [hidden]="submitted">
-    <h1>User Registration</h1>
+    <h1>Gebruikersregistartie</h1>
     <form (ngSubmit)="onSubmit()" #userForm="ngForm">
       <div class="form-group">
         <label for="naam">Naam</label>
         <input type="text" class="form-control" id="naam"
                required
                [(ngModel)]="model.naam" name="naam"
-               #naam="ngModel">
+               #naam="ngModel" placeholder="naam">
         <div [hidden]="naam.valid || naam.pristine"
              class="alert alert-danger">
           Naam is verplicht
@@ -16,44 +17,34 @@
 
       <div class="form-group">
         <label for="leeftijd">Leeftijd</label>
-        <input type="number" class="form-control" id="leeftijd" required [(ngModel)]="model.leeftijd" name="leeftijd" #leeftijd="ngModel">
+        <input type="number" class="form-control" id="leeftijd" required [(ngModel)]="model.leeftijd" name="leeftijd" #leeftijd="ngModel" placeholder="leeftijd">
         <div [hidden]="leeftijd.valid || leeftijd.pristine" class="alert alert-danger">
           Leeftijd is verplicht
         </div>
       </div>
 
       <div class="form-group">
-      <label for="username">Username</label>
+      <label for="username">Gebruikersnaam</label>
       <input type="text" class="form-control" id="username" required
-             [(ngModel)]="model.username" name="username" #username="ngModel">
+             [(ngModel)]="model.username" name="username" #username="ngModel" placeholder="gebruikersnaam">
       <div [hidden]="username.valid || username.pristine"
            class="alert alert-danger">
         Username is verplicht
       </div>
 
         <div class="form-group">
-          <label for="password">Password</label>
+          <label for="password">Wachtwoord</label>
           <input type="password" class="form-control" id="password" required
-                 [(ngModel)]="model.password" name="password" #password="ngModel">
+                 [(ngModel)]="model.password" name="password" #password="ngModel" placeholder="wachtwoord">
           <div [hidden]="password.valid || password.pristine"
                class="alert alert-danger">
             Password is verplicht
           </div>
         </div>
-        <!--<div class="form-group">-->
-          <!--<label for="password2">Repeat password</label>-->
-          <!--<input type="password" class="form-control" id="password2" required-->
-                 <!--[(ngModel)]="password2" name="password2" #password2="ngModel">-->
-          <!--<div [hidden]="password2.value===password.value"-->
-               <!--class="alert alert-danger">-->
-            <!--passwords moeten hetzelfde zijn-->
-          <!--</div>-->
-        <!--</div>-->
-
     </div>
 
-      <button type="submit" class="btn btn-success" [disabled]="!userForm.form.valid">Submit</button>
-      <button type="button" class="btn btn-default" (click)="newUser(); userForm.reset()">Clear fields</button>
+      <button type="submit" class="btn btn-success" [disabled]="!userForm.form.valid">Bevestig</button>
+      <button type="button" class="btn btn-default" (click)="newUser(); userForm.reset()">Leeg velden</button>
     </form>
   </div>
 
@@ -68,15 +59,15 @@
       <div class="col-xs-9">{{ model.leeftijd}}</div>
     </div>
     <div class="row">
-      <div class="col-xs-3">username</div>
+      <div class="col-xs-3">Gebruikersnaam</div>
       <div class="col-xs-9">{{ model.username}}</div>
     </div>
     <div class="row">
-      <div class="col-xs-3">password</div>
+      <div class="col-xs-3">Wachtwoord</div>
       <div class="col-xs-9" type="password">{{ model.password}}</div>
     </div>
     <br>
     <button class="btn btn-primary" routerLink="../bier" type="submit" (click)="saveUser()">Oké</button>
-    <button class="btn btn-primary" (click)="submitted = false">Edit user</button>
+    <button class="btn btn-primary" (click)="submitted = false">Wijzig gebruiker</button>
   </div>
 </div>
