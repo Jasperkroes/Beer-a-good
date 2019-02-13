@@ -8,6 +8,8 @@ import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
 import {UserFormComponent} from "./user-form/user-form.component";
 import { LoginComponent } from './login/login.component';
+import { StorageServiceModule } from 'ngx-webstorage-service';
+import {LocalStorageService} from "./LocalStorageService";
 
 @NgModule({
   declarations: [
@@ -20,9 +22,10 @@ import { LoginComponent } from './login/login.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    StorageServiceModule
   ],
-  providers: [],
+  providers: [LocalStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

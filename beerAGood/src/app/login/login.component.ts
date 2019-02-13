@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UserServiceService} from "../user-service.service";
 import {User} from "../User";
+import {LocalStorageService} from "../LocalStorageService";
 
 @Component({
   selector: 'app-login',
@@ -12,9 +13,8 @@ export class LoginComponent implements OnInit {
   user: User;
   loggedInCorrect = false;
   loggedInIncorrect = false;
-  loggedInUserId = 0;
 
-  constructor(private userService: UserServiceService) { }
+  constructor(private userService: UserServiceService, private storage: LocalStorageService) { }
 
   ngOnInit() {
   }
@@ -24,9 +24,9 @@ export class LoginComponent implements OnInit {
     this.userService.findUser(username, password).subscribe(
       result => {
         console.log(username + " " + result)
-        if (result > 0) {
+        if (result.id > 0) {
           this.loggedInCorrect = true;
-          this.loggedInUserId = result;
+          this.storage.storeUser(result);
         } else {
           this.loggedInIncorrect = true;
         }

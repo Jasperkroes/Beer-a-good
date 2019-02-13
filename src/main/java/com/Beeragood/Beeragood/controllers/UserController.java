@@ -26,13 +26,12 @@ public class UserController {
 
     @ResponseBody
     @RequestMapping(value = "/authenticate", method = RequestMethod.POST)
-    public int authenticate(@RequestBody User user) {
-        System.out.println(user);
+    public User authenticate(@RequestBody User user) {
         Iterable<User> it = userService.findByUsernameAndPassword(user.getUsername(), user.getPassword());
         if( it.iterator().hasNext() ) {
-            return it.iterator().next().getId();
+            return it.iterator().next();
         }
-        return -1;
+        return user;
     }
 
     //curl -H "Content-Type: application/json" -X PUT -d '{"id": 1, "task", "description","date": "taskTest"}' http://localhost:8080/user/1
