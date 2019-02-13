@@ -12,32 +12,26 @@ export class LoginComponent implements OnInit {
   user: User;
   loggedInCorrect = false;
   loggedInIncorrect = false;
+  loggedInUserId = 0;
 
   constructor(private userService: UserServiceService) { }
 
   ngOnInit() {
   }
 
-  getSelectedUser(username: String): boolean {
-    this.userService.findUser(username).subscribe(
-      user => {
-        this.user = user;
-        return true;
-        },
-      err => {
-        console.log(err + ': User not found');
+
+  validateUser(username: String, password: String) {
+    this.userService.findUser(username, password).subscribe(
+      result => {
+        console.log(username + " " + result)
+        if (result > 0) {
+          this.loggedInCorrect = true;
+          this.loggedInUserId = result;
+        } else {
+          this.loggedInIncorrect = true;
+        }
       }
     )
-    return false;
-  }
-
-  validateUser(value: string) {
-    //Todo: check if this value is a valid username in the db, also check if the password is correct
-    if(value === 'jappie') {
-      this.loggedInCorrect = true;
-    } else {
-      this.loggedInIncorrect = true;
-    }
   }
 
   resetFlags() {

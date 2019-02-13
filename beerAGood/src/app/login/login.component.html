@@ -5,9 +5,9 @@
     <input type="email" id="inputEmail" class="form-control" placeholder="Gebruikersnaam" required autofocus #username>
 
     <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" id="inputPassword" class="form-control" placeholder="Wachtwoord" required>
+    <input type="password" id="inputPassword" class="form-control" placeholder="Wachtwoord" required #password>
 
-    <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="validateUser(username.value)">Login bij 'Beer a good' </button>
+    <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="validateUser(username.value, password.value)">Login bij 'Beer a good' </button>
     <button class="btn btn-lg btn-primary btn-block" routerLink="registreren" type="submit">Registeren</button>
 
     <p class="mt-5 mb-3 text-muted">&copy; 2019</p>

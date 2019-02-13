@@ -18,12 +18,8 @@ export class UserServiceService {
     );
   }
 
-  findUser(username: String): Observable<User> {
-    return this.http.get<any>('http://localhost:8080/user/'+ username).pipe(
-      filter(x => username === x.username),
-      first(),
-      catchError(this.handleError<User>(`findUser`))
-    );
+  findUser(username: String, password: String){
+    return this.http.post<any>('http://localhost:8080/authenticate', new User(0,'',0,username,password));
   }
 
   private handleError<T> (operation = 'operation', result?: T) {
