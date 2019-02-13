@@ -1,4 +1,4 @@
-<div [hidden]="loggedInCorrect || loggedInIncorrect">
+<div class="singinbox" [hidden]="loggedInCorrect || loggedInIncorrect">
   <form class="form-signin" style="" xmlns="http://www.w3.org/1999/html">
    <br>
     <label for="inputEmail" class="sr-only">Email address</label>
@@ -14,7 +14,7 @@
   </form>
 </div>
 <div [hidden]="!loggedInCorrect">
-  <button class="btn btn-lg btn-primary btn-block" type="submit" routerLink="bier"> Continue </button>
+  <button class="btn btn-lg btn-primary btn-block" type="submit" routerLink="homepage"> Continue </button>
 </div>
 <div [hidden]="!loggedInIncorrect">
   <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="resetFlags()"> Incorrect login go back </button>

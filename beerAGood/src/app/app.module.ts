@@ -10,13 +10,18 @@ import {UserFormComponent} from "./user-form/user-form.component";
 import { LoginComponent } from './login/login.component';
 import { StorageServiceModule } from 'ngx-webstorage-service';
 import {LocalStorageService} from "./LocalStorageService";
+import { HomepageComponent } from './homepage/homepage.component';
+import { RateComponent } from './rate/rate.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     BierListComponent,
     UserFormComponent,
-    LoginComponent
+    LoginComponent,
+    HomepageComponent,
+    RateComponent
   ],
   imports: [
     BrowserModule,
