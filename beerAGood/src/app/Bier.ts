@@ -1,10 +1,10 @@
 export class Bier {
 
-  id: Number = 0;
-  naam: String;
-  afkomst: String;
-  alcoholPercentage: Number;
-  foto: String;
+  public id: Number = 0;
+  public naam: String;
+  public afkomst: String;
+  public alcoholPercentage: Number;
+  public foto: String;
 
   constructor(id: Number, naam: String, afkomst: String, alcoholPercentage: Number, foto: String) {
     this.naam = naam;
