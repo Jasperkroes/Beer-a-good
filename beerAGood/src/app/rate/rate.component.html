@@ -34,20 +34,23 @@
   </div>
 </nav>
 
-<div class="form-group">
-  <label for="exampleFormControlSelect1">Rating</label>
-  <small class="form-text text-muted">Kies 1 ster voor een waardeloos biertje en 5 sterren voor een onvergetelijke drinkervaring.</small>
-  <select class="form-control" id="exampleFormControlSelect1">
-    <option>5* Heel lekker biertje, echt een favoriet</option>
-    <option>4* Lekker biertje, specialer dan de meeste biertjes</option>
-    <option>3* Normaal biertje, niks bijzonders verder</option>
-    <option>2* Slecht biertje</option>
-    <option>1* Waardeloos biertje</option>
-  </select>
-</div>
+<app-bier-list bier = {{selectedBier}}></app-bier-list>
 
 <div>
   <hr>
-  <img src="https://3c1703fe8d.site.internapcdn.net/newman/gfx/news/hires/2016/ratingrankin.jpg" width="55%">
+  <p>Druk op een ster om een rating te geven aan bovenstaand biertje.</p>
+  <p>Rating {{model.cijfer}}</p>
+  <img src="../../assets/images/1star.png" alt="" width="10%" (click)="cijfer=1">
+  <img src="../../assets/images/2star.png" alt="" width="10%" (click)="cijfer=2">
+  <img src="../../assets/images/3star.png" alt="" width="10%" (click)="cijfer=3">
+  <img src="../../assets/images/4star.png" alt="" width="10%" (click)="cijfer=4">
+  <img src="../../assets/images/5star.png" alt="" width="10%" (click)="cijfer=5">
 </div>
-<app-bier-list></app-bier-list>
+<hr>
+<br>
+<!--<form>-->
+  <!--<label for="omschrijving">Omschrijving</label>-->
+  <!--<input type="text" class="form-control" id="username" required-->
+<!--</form>-->
+<button type="button" class="btn btn-primary" id="buttonStars" routerLink="../homepage" type="submit" (click)="saveRate()">Bevestig</button>
+
