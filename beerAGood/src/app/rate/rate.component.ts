@@ -20,7 +20,10 @@ export class RateComponent implements OnInit {
     this.invalid = false;
   }
 
-  saveRate() {
+  saveRate(omschrijving: string, datum: string, locatie: string) {
+    this.model.omschrijving = omschrijving;
+    this.model.datum = datum;
+    this.model.locatie = locatie;
     this.model.user = this.storage.getStoredUser();
     this.model.bier = this.storage.getStoredBier();
     if (this.model.bier.id > 0 && this.model.user.id > 0) {
