@@ -4,7 +4,7 @@
   <option *ngFor="let bier of biertjes" [ngValue]="bier">{{bier.naam}}</option>
 </select>
 
-<div *ngIf="selectedBier">
+<div *ngIf="store(selectedBier)" >
   <img src='{{selectedBier.foto}}' height="150" width="100">
 </div>
 
