@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {RateService} from "../rate.service";
 import {Rate} from "../Rate";
 import {LocalStorageService} from "../LocalStorageService";
-import {User} from "../User";
 
 @Component({
   selector: 'app-rate',
@@ -10,14 +9,15 @@ import {User} from "../User";
   styleUrls: ['./rate.component.css']
 })
 export class RateComponent implements OnInit {
-  private cijfer = 3;
   model = new Rate(0,3,'','','', this.storage.getStoredUser(), this.storage.getStoredBier());
   submitted = false;
+  invalid = false;
 
   constructor(private rateService: RateService, private  storage: LocalStorageService) { }
 
   onSubmit() {
     this.submitted = true;
+    this.invalid = false;
   }
 
   saveRate() {
@@ -25,7 +25,9 @@ export class RateComponent implements OnInit {
     this.model.bier = this.storage.getStoredBier();
     if (this.model.bier.id > 0 && this.model.user.id > 0) {
       this.rateService.saveRate(this.model).subscribe();
+      this.onSubmit();
     } else {
+      this.invalid = true;
       console.log(this.model.user + " : " + this.model.bier)
     }
   }

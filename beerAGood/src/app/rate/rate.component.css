@@ -7,10 +7,14 @@
   color: white;
 }
 
-#buttonStars {
+.btn.btn-primary{
   background-color: gold;
   outline-color: white;
   color: white;
+}
+
+.lbl.lbl-primary{
+  color: firebrick;
 }
 
 

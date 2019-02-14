@@ -33,24 +33,30 @@
     </ul>
   </div>
 </nav>
+<div [hidden]="submitted">
+  <app-bier-list></app-bier-list>
 
-<app-bier-list></app-bier-list>
-
-<div>
+  <div>
+    <hr>
+    <p>Druk op een ster om een rating te geven aan bovenstaand biertje.</p>
+    <p>Rating {{model.cijfer}}</p>
+    <img src="../../assets/images/1star.png" alt="" width="10%" (click)="model.cijfer=1">
+    <img src="../../assets/images/2star.png" alt="" width="10%" (click)="model.cijfer=2">
+    <img src="../../assets/images/3star.png" alt="" width="10%" (click)="model.cijfer=3">
+    <img src="../../assets/images/4star.png" alt="" width="10%" (click)="model.cijfer=4">
+    <img src="../../assets/images/5star.png" alt="" width="10%" (click)="model.cijfer=5">
+  </div>
   <hr>
-  <p>Druk op een ster om een rating te geven aan bovenstaand biertje.</p>
-  <p>Rating {{model.cijfer}}</p>
-  <img src="../../assets/images/1star.png" alt="" width="10%" (click)="model.cijfer=1">
-  <img src="../../assets/images/2star.png" alt="" width="10%" (click)="model.cijfer=2">
-  <img src="../../assets/images/3star.png" alt="" width="10%" (click)="model.cijfer=3">
-  <img src="../../assets/images/4star.png" alt="" width="10%" (click)="model.cijfer=4">
-  <img src="../../assets/images/5star.png" alt="" width="10%" (click)="model.cijfer=5">
+  <br>
+  <!--<form>-->
+    <!--<label for="omschrijving">Omschrijving</label>-->
+    <!--<input type="text" class="form-control" id="username" required-->
+  <!--</form>-->
+  <button type="button" class="btn btn-primary" id="buttonStars" type="submit" (click)="saveRate()">Bevestig</button>
+  <br>
+  <label type="label" class="lbl lbl-primary" [hidden]="!invalid">Vul alle velden in.</label>
 </div>
-<hr>
-<br>
-<!--<form>-->
-  <!--<label for="omschrijving">Omschrijving</label>-->
-  <!--<input type="text" class="form-control" id="username" required-->
-<!--</form>-->
-<button type="button" class="btn btn-primary" id="buttonStars" routerLink="../homepage" type="submit" (click)="saveRate()">Bevestig</button>
-
+<div [hidden]="!submitted">
+  <h1>De rating is succesvol toegevoegd aan je geschiedenis</h1>
+  <button type="button" class="btn btn-primary" routerLink="../homepage">Oké</button>
+</div>
