@@ -7,16 +7,15 @@ import {UserServiceService} from "../user-service.service";
   templateUrl: './user-form.component.html',
   styleUrls: ['./user-form.component.css']
 })
-export class UserFormComponent {
+export class UserFormComponent implements OnInit{
 
   model = new User(0, '', null, '', '');
-  password2: String;
 
+  isnewUser = true;
   submitted = false;
 
   constructor(private userService: UserServiceService) {
   }
-
 
   onSubmit() {
     this.submitted = true;
@@ -37,5 +36,22 @@ export class UserFormComponent {
 
   saveUser() {
     this.userService.saveUser(this.model).subscribe();
+  }
+
+  verifyNewUser(username: String) {
+    this.userService.findUserByUserName(username).subscribe(
+      result => {
+        if(result.id <= 0) {
+          this.isnewUser = true;
+          this.onSubmit();
+        } else {
+          this.isnewUser = false;
+        }
+      }
+    );
+  }
+
+  ngOnInit(): void {
+    this.isnewUser = true;
   }
 }

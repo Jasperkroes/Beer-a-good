@@ -41,4 +41,10 @@ export class UserServiceService {
       catchError(this.handleError<User>(`getUserById`))
     );
   }
+
+  findUserByUserName(username: String): Observable<User> {
+    return this.http.post<any>('http://localhost:8080/verify', new User(0, '', 0, username, '')).pipe(
+      catchError(this.handleError<User>(`verify`))
+    );
+  }
 }
