@@ -26,7 +26,7 @@
         </a>
         <div class="dropdown-menu" style="background-color: gold" aria-labelledby="navbarDropdown">
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" style="background-color: gold; color: white" routerLink="../">Uitloggen</a>
+          <a class="dropdown-item" style="background-color: gold; color: white" routerLink="">Uitloggen</a>
         </div>
       </li>
 
@@ -34,17 +34,17 @@
   </div>
 </nav>
 
-<app-bier-list bier = {{selectedBier}}></app-bier-list>
+<app-bier-list></app-bier-list>
 
 <div>
   <hr>
   <p>Druk op een ster om een rating te geven aan bovenstaand biertje.</p>
   <p>Rating {{model.cijfer}}</p>
-  <img src="../../assets/images/1star.png" alt="" width="10%" (click)="cijfer=1">
-  <img src="../../assets/images/2star.png" alt="" width="10%" (click)="cijfer=2">
-  <img src="../../assets/images/3star.png" alt="" width="10%" (click)="cijfer=3">
-  <img src="../../assets/images/4star.png" alt="" width="10%" (click)="cijfer=4">
-  <img src="../../assets/images/5star.png" alt="" width="10%" (click)="cijfer=5">
+  <img src="../../assets/images/1star.png" alt="" width="10%" (click)="model.cijfer=1">
+  <img src="../../assets/images/2star.png" alt="" width="10%" (click)="model.cijfer=2">
+  <img src="../../assets/images/3star.png" alt="" width="10%" (click)="model.cijfer=3">
+  <img src="../../assets/images/4star.png" alt="" width="10%" (click)="model.cijfer=4">
+  <img src="../../assets/images/5star.png" alt="" width="10%" (click)="model.cijfer=5">
 </div>
 <hr>
 <br>
