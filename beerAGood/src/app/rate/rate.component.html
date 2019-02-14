@@ -48,11 +48,38 @@
   </div>
   <hr>
   <br>
-  <!--<form>-->
-    <!--<label for="omschrijving">Omschrijving</label>-->
-    <!--<input type="text" class="form-control" id="username" required-->
-  <!--</form>-->
-  <button type="button" class="btn btn-primary" id="buttonStars" type="submit" (click)="saveRate()">Bevestig</button>
+
+
+  <form>
+    <label>Omschrijving</label>
+    <input type="text" class="form-control" required #omschrijving>
+    <br>
+    <br>
+    <label>Datum</label><br>
+    <input type="date" #datum>
+    <br>
+
+    <div class="form-group">
+      <br>
+      <label for="exampleFormControlSelect2">Locatie</label>
+
+      <select multiple class="form-control" id="exampleFormControlSelect2" #locatie>
+        <option>Nederland</option>
+        <option>Belgie</option>
+        <option>Duitsland</option>
+        <option>Rest van Europa</option>
+        <option>Midden-Oosten</option>
+        <option>Oceanie</option>
+        <option>Azie</option>
+        <option>Noord-Amerika</option>
+        <option>Midden-Amerika</option>
+        <option>Zuid-Amerika</option>
+      </select>
+    </div>
+
+  </form>
+<br>
+  <button type="button" class="btn btn-primary" id="buttonStars" type="submit" (click)="saveRate(omschrijving.value, datum.value, locatie.value)">Bevestig</button>
   <br>
   <label type="label" class="lbl lbl-primary" [hidden]="!invalid">Vul alle velden in.</label>
 </div>
