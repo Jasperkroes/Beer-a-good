@@ -1,4 +1,17 @@
 <app-navbar></app-navbar>
-<p>
-  geschiedenis works!
-</p>
+<ul>
+  <li   *ngFor="let rating of ratings">
+    <h1>{{rating.bier.naam}}</h1>
+    <h4>{{rating.datum}}<br>{{rating.locatie}}</h4>
+    <div class="images">
+      <img src='{{rating.bier.foto}}' height="250px" width="175px">
+      <span style="alignment: right">
+        <img src='../../assets/images/{{rating.cijfer}}star.png'>
+      </span>
+    </div>
+    <br>
+    <div class="omschrijving">
+      {{rating.omschrijving}}
+    </div>
+  </li>
+</ul>
