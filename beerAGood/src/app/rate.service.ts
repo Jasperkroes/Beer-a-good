@@ -24,4 +24,10 @@ export class RateService {
       catchError(this.handleError<Rate>(`saverate`))
     );
   }
+
+  getAllRatingsFromUser(id: Number): Observable<Rate[]> {
+    return this.http.get<any>('http://localhost:8080/historyQry?user=' + id).pipe(
+      catchError(this.handleError<Rate>(`query user id ratings`))
+    );
+  }
 }

@@ -13,7 +13,6 @@ export class LocalStorageService {
 
   public storeUser(user: User): void {
     this.storage.set('signedInUser', user);
-    console.log("new user id "+ user.id);
   }
 
   public getStoredUser(): User {
