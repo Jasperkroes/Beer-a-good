@@ -31,8 +31,7 @@ a:hover {
   color: gold;
 }
 
-#headAch
-{
-background-image: url("https://cdn.static-economist.com/sites/default/files/images/2017/07/articles/main/20170708_wbp502.jpg");
+#imageAch{
+  margin-top: -150px;
+  width: 600px;
 }
-
