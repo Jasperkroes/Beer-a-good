@@ -4,17 +4,30 @@
 }
 
 .omschrijving {
-  background-color: gold;
-  color: black;
+  background-color: #ffc500;
+  color: whitesmoke;
   width: available;
-  max-width: 400px;
+  height: available;
+  border-radius: 4px;
+  margin: 5%;
 }
 
 .images {
   width: available;
-  max-width: 400px;
 }
 
-li {
+.border-box {
+  display: table;
+  clear: both;
+}
 
+.col-xs-6 {
+  alignment: center;
+  text-align: center;
+  color: darkgoldenrod;
+  background-color: palegoldenrod;
+  max-width: 400px;
+  border-radius: 4px;
+  width: 97%;
+  margin: 3%;
 }
