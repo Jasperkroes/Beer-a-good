@@ -1,5 +1,20 @@
-.navbar.navbar-expand-lg {
-  background-color: gold;
+.navbar.navbar-expand-md {
+  background-color: #ffc500;
+  color: white;
+}
+
+.nav-link.dropdown-toggle {
+  background-color: #ffc500;
+  color: white;
+}
+
+.dropdown-menu {
+  background-color: #ffc500;
+  color: white;
+}
+
+.dropdown-item {
+  background-color: #ffc500;
   color: white;
 }
 
