@@ -12,6 +12,8 @@ import { StorageServiceModule } from 'ngx-webstorage-service';
 import {LocalStorageService} from "./LocalStorageService";
 import { HomepageComponent } from './homepage/homepage.component';
 import { RateComponent } from './rate/rate.component';
+import { GeschiedenisComponent } from './geschiedenis/geschiedenis.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import { RateComponent } from './rate/rate.component';
     UserFormComponent,
     LoginComponent,
     HomepageComponent,
-    RateComponent
+    RateComponent,
+    GeschiedenisComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
