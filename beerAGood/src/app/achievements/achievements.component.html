@@ -1,1 +1,142 @@
 <app-navbar></app-navbar>
+<div class="container-fluid">
+  <div class="row">
+    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+      <div class="sidebar-sticky">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="../achievementsBehaald">
+              Behaalde achievements <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="../achievementsNietBehaald">
+              Niet behaalde achievements
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4"><div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+      <img id="imageAch" src="../../assets/achImages/achievementBG.jpg">
+      <!-- Todo score toevoegen-->
+      <h2>Achievements van {{storage.getStoredUser().username}} met score </h2>
+      <div class="table-responsive">
+        <table class="table table-striped table-sm">
+          <thead>
+          <tr>
+            <th>Achievement</th>
+            <th>Score</th>
+            <th>Omschrijving</th>
+            <th>Behaald op</th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>
+              <img src="../../assets/achImages/hart.jpg" alt="" width="40%">
+              <p>De beginner</p>
+            </td>
+            <td>5</td>
+            <td>5 verschillende biertjes gedronken</td>
+            <td>2019-02-15</td>
+          </tr>
+          <tr>
+            <td>
+              <img src="../../assets/achImages/cap10.jpg" alt="" width="40%">
+              <p>De verkenner</p>
+            </td>
+            <td>10</td>
+            <td>3 biertjes gedronken, elk afkomstig uit een ander land</td>
+            <td>2019-02-15</td>
+          </tr>
+          <tr>
+            <td>
+              <img src="../../assets/achImages/cap2.jpg" alt="" width="40%">
+              <p>De dubbel</p>
+            </td>
+            <td>15</td>
+            <td>Een dubbel speciaalbiertje gedronken</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>
+              <img src="../../assets/achImages/cap15.jpg" alt="" width="40%">
+              <p>De trippel</p>
+            </td>
+            <td>20</td>
+            <td>Een trippel speciaalbiertje gedronken</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>
+              <img src="../../assets/achImages/cap25b.jpg" alt="" width="40%">
+              <p>De afgestudeerde</p>
+            </td>
+            <td>25</td>
+            <td>4 achievements gehaald</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>
+              <img src="../../assets/achImages/cap20.jpg" alt="" width="40%">
+              <p>De quadruppel</p>
+            </td>
+            <td>30</td>
+            <td>Een quadruppel speciaalbiertje gedronken</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>
+              <img src="../../assets/achImages/cap30.jpg" alt="" width="40%">
+              <p>IJskoud</p>
+            </td>
+            <td>35</td>
+            <td>Een ijsbiertje gedronken</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>
+              <img src="../../assets/achImages/cap35.jpg" alt="" width="40%">
+              <p>De killer</p>
+            </td>
+            <td>40</td>
+            <td>Een speciaalbiertje gedronken boven de 12%</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>
+              <img src="../../assets/achImages/cap40.jpg" alt="" width="40%">
+              <p>De verfrisser</p>
+            </td>
+            <td>45</td>
+            <td>Een 0% biertje gedronken</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>
+              <img src="../../assets/achImages/cap45.jpg" alt="" width="40%">
+              <p>De ster</p>
+            </td>
+            <td>50</td>
+            <td>5 verschillende biertjes afkomstig uit 1 land gedronken</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>
+              <img src="../../assets/achImages/cap25.jpg" alt="" width="40%">
+              <p>De legende</p>
+            </td>
+            <td>55</td>
+            <td>Je stempel gedrukt op de bierwereld door 5 verschillende
+              <p>biertjes te drinken uit 5 verschillende landen</p>
+             </td>
+            <td>-</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+</div>

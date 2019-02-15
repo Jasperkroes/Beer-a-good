@@ -1,8 +1,32 @@
-.navbar.navbar-expand-lg {
-  background-color: gold;
+#menuKleur {
   color: white;
 }
 
-#menuKleur {
+#test{
+  background-color: #ffc500;
+}
+
+.nav-item {
+  background-color: #ffc500;
   color: white;
+}
+
+.nav-link active {
+  background-color: #ffc500;
+  color: white;
+}
+
+.nav-link{
+  background-color: #ffc500;
+  color: white;
+}
+
+a:hover {
+  background-color: white;
+  color: #ffc500;
+}
+
+#imageAch{
+  width: 100%;
+  max-width: 600px;
 }
