@@ -1,37 +1,33 @@
-.navbar.navbar-expand-lg {
-  background-color: gold;
-  color: white;
-}
-
 #menuKleur {
   color: white;
 }
 
 #test{
-  background-color: gold;
+  background-color: #ffc500;
 }
 
 .nav-item {
-  background-color: gold;
+  background-color: #ffc500;
   color: white;
 }
 
 .nav-link active {
-  background-color: gold;
+  background-color: #ffc500;
   color: white;
 }
 
 .nav-link{
-  background-color: gold;
+  background-color: #ffc500;
   color: white;
 }
 
 a:hover {
   background-color: white;
-  color: gold;
+  color: #ffc500;
 }
 
 #imageAch{
   margin-top: -150px;
-  width: 600px;
+  width: 100%;
+  max-width: 600px;
 }
