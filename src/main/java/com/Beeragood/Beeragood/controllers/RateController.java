@@ -56,5 +56,11 @@ public class RateController {
     public String page() {
         return "rate";
     }
+
+    @ResponseBody
+    @RequestMapping(value = "/historyQry", method = RequestMethod.GET)
+    public List<Rate> getAllRatingsByUserId(@RequestParam(value="user") int id) {
+        return rateService.findByUseridNativeQuery(id);
+    }
 }
 

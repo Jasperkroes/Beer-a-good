@@ -23,7 +23,6 @@ export class LoginComponent implements OnInit {
   validateUser(username: String, password: String) {
     this.userService.findUser(username, password).subscribe(
       result => {
-        console.log(username + " " + result)
         if (result.id > 0) {
           this.loggedInCorrect = true;
           this.storage.storeUser(result);

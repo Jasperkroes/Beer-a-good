@@ -1,0 +1,20 @@
+#rating-cijfer{
+  color: darkgoldenrod;
+  font-size: xx-large;
+}
+
+.omschrijving {
+  background-color: gold;
+  color: black;
+  width: available;
+  max-width: 400px;
+}
+
+.images {
+  width: available;
+  max-width: 400px;
+}
+
+li {
+
+}
