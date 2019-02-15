@@ -16,8 +16,6 @@ import { AchievementsComponent } from './achievements/achievements.component';
 import { GeschiedenisComponent } from './geschiedenis/geschiedenis.component';
 import { NavbarComponent } from './navbar/navbar.component';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
