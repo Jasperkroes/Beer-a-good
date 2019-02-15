@@ -12,8 +12,10 @@ import { StorageServiceModule } from 'ngx-webstorage-service';
 import {LocalStorageService} from "./LocalStorageService";
 import { HomepageComponent } from './homepage/homepage.component';
 import { RateComponent } from './rate/rate.component';
+import { AchievementsComponent } from './achievements/achievements.component';
 import { GeschiedenisComponent } from './geschiedenis/geschiedenis.component';
 import { NavbarComponent } from './navbar/navbar.component';
+
 
 
 @NgModule({
@@ -24,6 +26,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     LoginComponent,
     HomepageComponent,
     RateComponent,
+    AchievementsComponent,
     GeschiedenisComponent,
     NavbarComponent
   ],
@@ -32,7 +35,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    StorageServiceModule
+    StorageServiceModule,
   ],
   providers: [LocalStorageService],
   bootstrap: [AppComponent]
