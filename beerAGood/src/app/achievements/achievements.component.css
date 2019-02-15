@@ -6,3 +6,33 @@
 #menuKleur {
   color: white;
 }
+
+#test{
+  background-color: gold;
+}
+
+.nav-item {
+  background-color: gold;
+  color: white;
+}
+
+.nav-link active {
+  background-color: gold;
+  color: white;
+}
+
+.nav-link{
+  background-color: gold;
+  color: white;
+}
+
+a:hover {
+  background-color: white;
+  color: gold;
+}
+
+#headAch
+{
+background-image: url("https://cdn.static-economist.com/sites/default/files/images/2017/07/articles/main/20170708_wbp502.jpg");
+}
+

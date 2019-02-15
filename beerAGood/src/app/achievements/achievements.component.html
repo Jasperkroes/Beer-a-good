@@ -1,1 +1,151 @@
 <app-navbar></app-navbar>
+<hr>
+<div class="container-fluid">
+  <div class="row">
+    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+      <div class="sidebar-sticky">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+              Behaalde achievements <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
+              Niet behaalde achievements
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4"><div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom" id="headAch">
+        <h1 class="h2" style="color: gold">Achievements</h1>
+      </div>
+
+      <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="296" height="124" style="display: block; width: 296px; height: 124px;"></canvas>
+      <h2>{{storage.getStoredUser().username}}</h2>
+      <div class="table-responsive">
+        <table class="table table-striped table-sm">
+          <thead>
+          <tr>
+            <th>Achievement</th>
+            <th>Score</th>
+            <th>Omschrijving</th>
+            <th>Datum behaald</th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>
+              <img src="../../assets/achImages/hart.jpg" alt="" width="40%">
+              <p>Beginner</p>
+            </td>
+            <td>5</td>
+            <td>5 verschillende biertjes gedronken</td>
+            <td>2019-02-15</td>
+          </tr>
+          <tr>
+            <td>
+              <img src="../../assets/achImages/cap10.jpg" alt="" width="40%">
+              <p>Verkenner</p>
+            </td>
+            <td>10</td>
+            <td>3 biertjes gedronken, elk afkomstig uit een ander land</td>
+            <td>2019-02-15</td>
+          </tr>
+          <tr>
+            <td>
+              <img src="../../assets/achImages/cap2.jpg" alt="" width="40%">
+              <p>Verkenner</p>
+            </td>
+            <td>Integer</td>
+            <td>nec</td>
+            <td>odio</td>
+          </tr>
+          <tr>
+            <td>
+              <img src="../../assets/achImages/cap15.jpg" alt="" width="40%">
+              <p>Verkenner</p>
+            </td>
+            <td>libero</td>
+            <td>Sed</td>
+            <td>cursus</td>
+          </tr>
+          <tr>
+            <td>
+              <img src="../../assets/achImages/cap20.jpg" alt="" width="40%">
+              <p>Verkenner</p>
+            </td>
+            <td>dapibus</td>
+            <td>diam</td>
+            <td>Sed</td>
+          </tr>
+          <tr>
+            <td>
+              <img src="../../assets/achImages/cap25.jpg" alt="" width="40%">
+              <p>Verkenner</p>
+            </td>
+            <td>Nulla</td>
+            <td>quis</td>
+            <td>sem</td>
+          </tr>
+          <tr>
+            <td>
+              <img src="../../assets/achImages/cap30.jpg" alt="" width="40%">
+              <p>Verkenner</p>
+            </td>
+            <td>nibh</td>
+            <td>elementum</td>
+            <td>imperdiet</td>
+          </tr>
+          <tr>
+            <td>
+              <img src="../../assets/achImages/cap35.jpg" alt="" width="40%">
+              <p>Verkenner</p>
+            </td>
+            <td>sagittis</td>
+            <td>ipsum</td>
+            <td>Praesent</td>
+          </tr>
+          <tr>
+            <td>
+              <img src="../../assets/achImages/cap40.jpg" alt="" width="40%">
+              <p>Verkenner</p>
+            </td>
+            <td>Fusce</td>
+            <td>nec</td>
+            <td>tellus</td>
+          </tr>
+          <tr>
+            <td>
+              <img src="../../assets/achImages/cap45.jpg" alt="" width="40%">
+              <p>Verkenner</p>
+            </td>
+            <td>augue</td>
+            <td>semper</td>
+            <td>porta</td>
+          </tr>
+          <tr>
+            <td>
+              <img src="../../assets/achImages/" alt="" width="40%">
+              <p>Verkenner</p>
+            </td>
+            <td>massa</td>
+            <td>Vestibulum</td>
+            <td>lacinia</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')</script><script src="/docs/4.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+<script src="dashboard.js"></script>
