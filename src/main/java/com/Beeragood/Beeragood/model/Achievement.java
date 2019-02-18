@@ -18,6 +18,8 @@ public class Achievement {
 	private String plaatje;
 	private int score;
 
+	public Achievement() {}
+
 	public Achievement(int id, String naam, String omschrijving, String datumBehaald, String plaatje, int score) {
 		this.id = id;
 		this.naam = naam;

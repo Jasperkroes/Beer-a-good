@@ -5,10 +5,7 @@ import com.Beeragood.Beeragood.model.Bier;
 import com.Beeragood.Beeragood.services.AchievementService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,5 +20,12 @@ public class AchievementController {
 	@RequestMapping(value = "/achievement", method = RequestMethod.GET)
 	public List<Achievement> findAll() {
 		return (List<Achievement>)achievementService.findAll();
+	}
+
+	//curl -H "Content-Type: application/json" -X POST -d '{"id": 0, "task", "description","date": "taskTest"}' http://localhost:8080/achievement
+	@ResponseBody
+	@RequestMapping(value = "/achievement", method = RequestMethod.POST)
+	public int create(@RequestBody Achievement achievement) {
+		return achievementService.save(achievement).getId();
 	}
 }
