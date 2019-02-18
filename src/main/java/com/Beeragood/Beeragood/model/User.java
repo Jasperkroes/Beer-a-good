@@ -16,15 +16,17 @@ public class User {
     private int leeftijd;
     private String username;
     private String password;
+    private int score;
 
     public User() {}
 
-    public User(int id, String naam, int leeftijd, String username, String password) {
+    public User(int id, String naam, int leeftijd, String username, String password, int score) {
         this.id = id;
         this.naam = naam;
         this.leeftijd = leeftijd;
         this.username = username;
         this.password = password;
+        this.score = score;
     }
 
     public int getId() {
@@ -63,6 +65,10 @@ public class User {
         this.password = password;
     }
 
+    public int getScore() {
+        return score;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -71,6 +77,7 @@ public class User {
                 ", leeftijd=" + leeftijd +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
+                ", score=" + score +
                 '}';
     }
 }
