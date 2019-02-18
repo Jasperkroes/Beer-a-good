@@ -134,6 +134,16 @@
              </td>
             <td>-</td>
           </tr>
+          <!-- Deze code moet met de db communiceren -->
+          <tr *ngFor="let achievement in achievements">
+            <td>
+              <img src='{{achievement.plaatje}}' alt="" width="40%">
+              <p>{{achievement.naam}}</p>
+            </td>
+            <td>{{achievement.score}}</td>
+            <td>{{achievement.omschrijving}}</td>
+            <td>{{achievement.datumBehaald}}</td>
+          </tr>
           </tbody>
         </table>
       </div>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {LocalStorageService} from "../LocalStorageService";
+import {Achievement} from "../Achievement";
+import {AchievementServiceService} from "../achievement-service.service";
 
 @Component({
   selector: 'app-achievements',
@@ -8,9 +10,19 @@ import {LocalStorageService} from "../LocalStorageService";
 })
 export class AchievementsComponent implements OnInit {
 
-  constructor(private storage: LocalStorageService) { }
+  achievements: Achievement[];
+
+  constructor(private storage: LocalStorageService, private achievementService: AchievementServiceService) { }
 
   ngOnInit() {
+    this.findAll();
   }
 
+  private findAll() {
+    this.achievementService.findAll().subscribe(
+      result => {
+        this.achievements = result;
+      }
+    )
+  }
 }
