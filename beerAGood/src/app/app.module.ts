@@ -15,6 +15,7 @@ import { RateComponent } from './rate/rate.component';
 import { AchievementsComponent } from './achievements/achievements.component';
 import { GeschiedenisComponent } from './geschiedenis/geschiedenis.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     HttpClientModule,
     FormsModule,
     StorageServiceModule,
+    MDBBootstrapModule.forRoot()
   ],
   providers: [LocalStorageService],
   bootstrap: [AppComponent]

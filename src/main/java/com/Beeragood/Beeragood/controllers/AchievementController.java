@@ -28,4 +28,10 @@ public class AchievementController {
 	public int create(@RequestBody Achievement achievement) {
 		return achievementService.save(achievement).getId();
 	}
+	@ResponseBody
+	@RequestMapping(value = "/achievementAlcoholVrij/{id}", method = RequestMethod.GET)
+	public boolean validateAlcoholVrij(@PathVariable int id) {
+		return achievementService.findAlcoholVrijeBiertjesRatingsVanUser(id)>0;
+	}
+
 }
