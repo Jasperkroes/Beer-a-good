@@ -33,106 +33,15 @@
             </tr>
           </thead>
           <tbody>
-          <tr>
+          <!-- Deze code moet met de db communiceren -->
+          <tr *ngFor="let achievement of achievements">
             <td>
-              <img src="../../assets/achImages/hart.jpg" alt="" width="40%">
-              <p>De beginner</p>
+              <img src='{{achievement.plaatje}}' alt="" style="max-width: 100px; width: 40%">
+              <p>{{achievement.naam}}</p>
             </td>
-            <td>5</td>
-            <td>5 verschillende biertjes gedronken</td>
-            <td>2019-02-15</td>
-          </tr>
-          <tr>
-            <td>
-              <img src="../../assets/achImages/cap10.jpg" alt="" width="40%">
-              <p>De verkenner</p>
-            </td>
-            <td>10</td>
-            <td>3 biertjes gedronken, elk afkomstig uit een ander land</td>
-            <td>2019-02-15</td>
-          </tr>
-          <tr>
-            <td>
-              <img src="../../assets/achImages/cap2.jpg" alt="" width="40%">
-              <p>De dubbel</p>
-            </td>
-            <td>15</td>
-            <td>Een dubbel speciaalbiertje gedronken</td>
-            <td>-</td>
-          </tr>
-          <tr>
-            <td>
-              <img src="../../assets/achImages/cap15.jpg" alt="" width="40%">
-              <p>De trippel</p>
-            </td>
-            <td>20</td>
-            <td>Een trippel speciaalbiertje gedronken</td>
-            <td>-</td>
-          </tr>
-          <tr>
-            <td>
-              <img src="../../assets/achImages/cap25b.jpg" alt="" width="40%">
-              <p>De afgestudeerde</p>
-            </td>
-            <td>25</td>
-            <td>4 achievements gehaald</td>
-            <td>-</td>
-          </tr>
-          <tr>
-            <td>
-              <img src="../../assets/achImages/cap20.jpg" alt="" width="40%">
-              <p>De quadruppel</p>
-            </td>
-            <td>30</td>
-            <td>Een quadruppel speciaalbiertje gedronken</td>
-            <td>-</td>
-          </tr>
-          <tr>
-            <td>
-              <img src="../../assets/achImages/cap30.jpg" alt="" width="40%">
-              <p>IJskoud</p>
-            </td>
-            <td>35</td>
-            <td>Een ijsbiertje gedronken</td>
-            <td>-</td>
-          </tr>
-          <tr>
-            <td>
-              <img src="../../assets/achImages/cap35.jpg" alt="" width="40%">
-              <p>De killer</p>
-            </td>
-            <td>40</td>
-            <td>Een speciaalbiertje gedronken boven de 12%</td>
-            <td>-</td>
-          </tr>
-          <tr>
-            <td>
-              <img src="../../assets/achImages/cap40.jpg" alt="" width="40%">
-              <p>De verfrisser</p>
-            </td>
-            <td>45</td>
-            <td>Een 0% biertje gedronken</td>
-            <td>-</td>
-          </tr>
-          <tr>
-            <td>
-              <img src="../../assets/achImages/cap45.jpg" alt="" width="40%">
-              <p>De ster</p>
-            </td>
-            <td>50</td>
-            <td>5 verschillende biertjes afkomstig uit 1 land gedronken</td>
-            <td>-</td>
-          </tr>
-          <tr>
-            <td>
-              <img src="../../assets/achImages/cap25.jpg" alt="" width="40%">
-              <p>De legende</p>
-            </td>
-            <td>55</td>
-            <td>Je stempel gedrukt op de bierwereld door 5 verschillende
-              <p>biertjes te drinken uit 5 verschillende landen</p>
-             </td>
-            <td>-</td>
+            <td>{{achievement.score}}</td>
+            <td>{{achievement.omschrijving}}</td>
+            <td>{{achievement.datumBehaald}}</td>
           </tr>
           </tbody>
         </table>

@@ -24,7 +24,12 @@ export class BierListComponent implements OnInit {
   getAllBiertjes() {
     this.bierService.findAll().subscribe(
       biertjes => {
-        this.biertjes = biertjes;
+        this.biertjes = biertjes.sort((a,b) => {
+          if (a.naam > b.naam) {
+            return 1;
+          }
+          return -1;
+        })
       },
       err => {
         console.log(err);
