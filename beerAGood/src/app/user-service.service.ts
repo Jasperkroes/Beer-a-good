@@ -20,7 +20,7 @@ export class UserServiceService {
   }
 
   findUser(username: String, password: String): Observable<User>{
-    return this.http.post<any>('http://localhost:8080/authenticate', new User(0,'',0,username,password));
+    return this.http.post<any>('http://localhost:8080/authenticate', new User(0,'',0,username,password, 0));
   }
 
   private handleError<T> (operation = 'operation', result?: T) {
@@ -43,7 +43,7 @@ export class UserServiceService {
   }
 
   findUserByUserName(username: String): Observable<User> {
-    return this.http.post<any>('http://localhost:8080/verify', new User(0, '', 0, username, '')).pipe(
+    return this.http.post<any>('http://localhost:8080/verify', new User(0, '', 0, username, '',0)).pipe(
       catchError(this.handleError<User>(`verify`))
     );
   }

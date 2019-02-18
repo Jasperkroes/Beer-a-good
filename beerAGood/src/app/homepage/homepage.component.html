@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 <div class="jumbotron">
-  <h1 class="display-4">Persoonlijke omgeving</h1>
-  <p>Hier zie je de persoonlijke omgeving van de user.</p>
+  <h1 class="display-4">Welkom {{storage.getStoredUser().username}}!</h1>
+  <p> Jouw huidige score is {{storage.getStoredUser().score}}</p>
   <img src="https://catracalivre.com.br/wp-content/uploads/2013/08/dia_da_cerveja_-_reproducao.jpg" width="100%">
   <hr class="my-4">
 </div>
