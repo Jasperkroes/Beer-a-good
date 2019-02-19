@@ -36,5 +36,20 @@ public class AchievementController {
 		return new Pair<Integer, Boolean>(achievementService.findIdByNaam("De Nullpointer").iterator().next(),
 		        (achievementService.findAlcoholVrijeBiertjesRatingsVanUser(id)>0));
 	}
+	@ResponseBody
+	@RequestMapping(value = "/achievementVijfVerschillende/{id}", method = RequestMethod.GET)
+	public boolean validateVijfVerschillende(@PathVariable int id) {
+		return achievementService.findVijfVerschillendeBiertjeRateVanUser(id)>4;
+	}
+	@ResponseBody
+	@RequestMapping(value = "/achievementKoningsdag/{id}", method = RequestMethod.GET)
+	public boolean validateKoningsdag(@PathVariable int id) {
+		return achievementService.findKoningsdag(id)>0;
+	}
+	@ResponseBody
+	@RequestMapping(value = "/achievementYear/{id}", method = RequestMethod.GET)
+	public boolean validateYear(@PathVariable int id) {
+		return achievementService.findYear(id)>0;
+	}
 
 }

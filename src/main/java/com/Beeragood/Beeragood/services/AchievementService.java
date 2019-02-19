@@ -12,5 +12,14 @@ public interface AchievementService extends CrudRepository<Achievement, Integer>
 	@Query(value = "select count(*) from rate where user_id = :id and bier_id in (select id from bier where alcohol_percentage = 0)", nativeQuery = true)
 	int findAlcoholVrijeBiertjesRatingsVanUser(int id);
 
-    Iterable<Integer> findIdByNaam(String naam);
+	@Query(value = "select count(distinct bier_id) from rate where user_id = :id", nativeQuery = true)
+	int findVijfVerschillendeBiertjeRateVanUser(int id);
+
+	@Query(value = "select count(*) from rate where datum like '%04-27%' and user_id = :id", nativeQuery = true)
+	int findKoningsdag(int id);
+
+	@Query(value = "select count(*) from rate where user_id = :id and datum < date_sub(current_date, interval 1 year)", nativeQuery = true)
+	int findYear(int id);
+
+	Iterable<Integer> findIdByNaam(String naam);
 }
