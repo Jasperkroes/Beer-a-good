@@ -20,30 +20,37 @@ export class AchievementServiceService {
   }
 
   checkAchievements() {
-    return this.checkAlcoholVrij();
+    this.checkAlcoholVrij().subscribe(
+      result => {
+        if(result) {
+          //Todo: Post newly achieved achievements to the db.
+          console.log('Alcoholvrij is gehaald!');
+        }
+      }
+    );
   }
 
-  checkAlcoholVrij() {
+  checkAlcoholVrij(): Observable<boolean> {
     return this.http.get<any>('http://localhost:8080/achievementAlcoholVrij/'+this.storage.getStoredUser().id).pipe(
-      catchError(this.handleError<Bier>(`findAll`))
+      catchError(this.handleError<boolean>(`findAll`))
     );
   }
 
   checkVijfVerschillende() {
     return this.http.get<any>('http://localhost:8080/achievementVijfVerschillende/'+this.storage.getStoredUser().id).pipe(
-      catchError(this.handleError<Bier>(`findAll`))
+      catchError(this.handleError<boolean>(`findAll`))
     );
   }
 
   checkKoningsdag() {
     return this.http.get<any>('http://localhost:8080/achievementKoningsdag/'+this.storage.getStoredUser().id).pipe(
-      catchError(this.handleError<Bier>(`findAll`))
+      catchError(this.handleError<boolean>(`findAll`))
     );
   }
 
   checkYear() {
     return this.http.get<any>('http://localhost:8080/achievementYear/'+this.storage.getStoredUser().id).pipe(
-      catchError(this.handleError<Bier>(`findAll`))
+      catchError(this.handleError<boolean>(`findAll`))
     );
   }
 

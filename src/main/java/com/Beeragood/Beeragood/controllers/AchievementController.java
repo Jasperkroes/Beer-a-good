@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.util.*;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @Controller
@@ -32,20 +32,22 @@ public class AchievementController {
 
 	@ResponseBody
 	@RequestMapping(value = "/achievementAlcoholVrij/{id}", method = RequestMethod.GET)
-	public Pair<Integer,Boolean> validateAlcoholVrij(@PathVariable int id) {
-		return new Pair<Integer, Boolean>(achievementService.findIdByNaam("De Nullpointer").iterator().next(),
-		        (achievementService.findAlcoholVrijeBiertjesRatingsVanUser(id)>0));
+	public boolean validateAlcoholVrij(@PathVariable int id) {
+		return (achievementService.findAlcoholVrijeBiertjesRatingsVanUser(id) > 0);
 	}
+
 	@ResponseBody
 	@RequestMapping(value = "/achievementVijfVerschillende/{id}", method = RequestMethod.GET)
 	public boolean validateVijfVerschillende(@PathVariable int id) {
 		return achievementService.findVijfVerschillendeBiertjeRateVanUser(id)>4;
 	}
+
 	@ResponseBody
 	@RequestMapping(value = "/achievementKoningsdag/{id}", method = RequestMethod.GET)
 	public boolean validateKoningsdag(@PathVariable int id) {
 		return achievementService.findKoningsdag(id)>0;
 	}
+
 	@ResponseBody
 	@RequestMapping(value = "/achievementYear/{id}", method = RequestMethod.GET)
 	public boolean validateYear(@PathVariable int id) {
