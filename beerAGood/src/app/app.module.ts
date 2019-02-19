@@ -16,6 +16,7 @@ import { AchievementsComponent } from './achievements/achievements.component';
 import { GeschiedenisComponent } from './geschiedenis/geschiedenis.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { NotificationComponent } from './notification/notification.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     RateComponent,
     AchievementsComponent,
     GeschiedenisComponent,
-    NavbarComponent
+    NavbarComponent,
+    NotificationComponent,
   ],
   imports: [
     BrowserModule,
