@@ -3,6 +3,7 @@ package com.Beeragood.Beeragood.controllers;
 import com.Beeragood.Beeragood.model.Achievement;
 import com.Beeragood.Beeragood.model.Bier;
 import com.Beeragood.Beeragood.services.AchievementService;
+import javafx.util.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -28,10 +29,12 @@ public class AchievementController {
 	public int create(@RequestBody Achievement achievement) {
 		return achievementService.save(achievement).getId();
 	}
+
 	@ResponseBody
 	@RequestMapping(value = "/achievementAlcoholVrij/{id}", method = RequestMethod.GET)
-	public boolean validateAlcoholVrij(@PathVariable int id) {
-		return achievementService.findAlcoholVrijeBiertjesRatingsVanUser(id)>0;
+	public Pair<Integer,Boolean> validateAlcoholVrij(@PathVariable int id) {
+		return new Pair<Integer, Boolean>(achievementService.findIdByNaam("De Nullpointer").iterator().next(),
+		        (achievementService.findAlcoholVrijeBiertjesRatingsVanUser(id)>0));
 	}
 
 }

@@ -18,6 +18,7 @@ export class AchievementsComponent implements OnInit {
   ngOnInit() {
     this.findAll();
     this.achievementService.checkAchievements().subscribe(
+      result => console.log(result)
     );
   }
 
