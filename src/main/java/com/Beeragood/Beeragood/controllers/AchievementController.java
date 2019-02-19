@@ -40,6 +40,11 @@ public class AchievementController {
 	}
 	@ResponseBody
 	@RequestMapping(value = "/achievementKoningsdag/{id}", method = RequestMethod.GET)
+	public boolean validateKoningsdag(@PathVariable int id) {
+		return achievementService.findKoningsdag(id)>0;
+	}
+	@ResponseBody
+	@RequestMapping(value = "/achievementYear/{id}", method = RequestMethod.GET)
 	public boolean validateYear(@PathVariable int id) {
 		return achievementService.findYear(id)>0;
 	}
