@@ -33,5 +33,15 @@ public class AchievementController {
 	public boolean validateAlcoholVrij(@PathVariable int id) {
 		return achievementService.findAlcoholVrijeBiertjesRatingsVanUser(id)>0;
 	}
+	@ResponseBody
+	@RequestMapping(value = "/achievementVijfVerschillende/{id}", method = RequestMethod.GET)
+	public boolean validateVijfVerschillende(@PathVariable int id) {
+		return achievementService.findVijfVerschillendeBiertjeRateVanUser(id)>4;
+	}
+	@ResponseBody
+	@RequestMapping(value = "/achievementKoningsdag/{id}", method = RequestMethod.GET)
+	public boolean validateYear(@PathVariable int id) {
+		return achievementService.findYear(id)>0;
+	}
 
 }

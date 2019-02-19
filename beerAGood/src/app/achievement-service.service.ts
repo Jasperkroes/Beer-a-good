@@ -20,7 +20,29 @@ export class AchievementServiceService {
   }
 
   checkAchievements() {
+    return
+  }
+
+  checkAlcoholVrij() {
     return this.http.get<any>('http://localhost:8080/achievementAlcoholVrij/'+this.storage.getStoredUser().id).pipe(
+      catchError(this.handleError<Bier>(`findAll`))
+    );
+  }
+
+  checkVijfVerschillende() {
+    return this.http.get<any>('http://localhost:8080/achievementVijfVerschillende/'+this.storage.getStoredUser().id).pipe(
+      catchError(this.handleError<Bier>(`findAll`))
+    );
+  }
+
+  checkKoningsdag() {
+    return this.http.get<any>('http://localhost:8080/achievementKoningsdag/'+this.storage.getStoredUser().id).pipe(
+      catchError(this.handleError<Bier>(`findAll`))
+    );
+  }
+
+  checkYear() {
+    return this.http.get<any>('http://localhost:8080/achievementYear/'+this.storage.getStoredUser().id).pipe(
       catchError(this.handleError<Bier>(`findAll`))
     );
   }
