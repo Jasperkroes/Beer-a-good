@@ -1,9 +1,7 @@
 package com.Beeragood.Beeragood.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Achievement {
@@ -17,6 +15,9 @@ public class Achievement {
 	private String datumBehaald;
 	private String plaatje;
 	private int score;
+
+	@OneToMany(mappedBy = "achievement", cascade = CascadeType.ALL)
+	private Set<UserAchievement> userAchievements;
 
 	public Achievement() {}
 
@@ -73,6 +74,14 @@ public class Achievement {
 		this.score = score;
 	}
 
+	public Set<UserAchievement> getUserAchievements() {
+		return userAchievements;
+	}
+
+	public void setUserAchievements(Set<UserAchievement> userAchievements) {
+		this.userAchievements = userAchievements;
+	}
+
 	@Override
 	public String toString() {
 		return "Achievement{" +
@@ -82,6 +91,7 @@ public class Achievement {
 			", datumBehaald='" + datumBehaald + '\'' +
 			", plaatje='" + plaatje + '\'' +
 			", score=" + score +
+			", userAchievements=" + userAchievements +
 			'}';
 	}
 }

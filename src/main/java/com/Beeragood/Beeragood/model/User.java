@@ -1,9 +1,10 @@
 package com.Beeragood.Beeragood.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Entity
 public class User {
@@ -18,15 +19,22 @@ public class User {
     private String password;
     private int score;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private Set<UserAchievement> userAchievements = new HashSet<>();
+
     public User() {}
 
-    public User(int id, String naam, int leeftijd, String username, String password, int score) {
+    public User(int id, String naam, int leeftijd, String username, String password, int score, UserAchievement... userAchievements) {
         this.id = id;
         this.naam = naam;
         this.leeftijd = leeftijd;
         this.username = username;
         this.password = password;
         this.score = score;
+        for (UserAchievement ua: userAchievements) {
+            ua.setUser(this);
+        }
+        this.userAchievements = Stream.of(userAchievements).collect(Collectors.toSet());
     }
 
     public int getId() {
@@ -69,15 +77,28 @@ public class User {
         return score;
     }
 
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    public Set<UserAchievement> getUserAchievements() {
+        return userAchievements;
+    }
+
+    public void setUserAchievements(Set<UserAchievement> userAchievements) {
+        this.userAchievements = userAchievements;
+    }
+
     @Override
     public String toString() {
         return "User{" +
-                "id=" + id +
-                ", naam='" + naam + '\'' +
-                ", leeftijd=" + leeftijd +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", score=" + score +
-                '}';
+            "id=" + id +
+            ", naam='" + naam + '\'' +
+            ", leeftijd=" + leeftijd +
+            ", username='" + username + '\'' +
+            ", password='" + password + '\'' +
+            ", score=" + score +
+            ", userAchievements=" + userAchievements +
+            '}';
     }
 }
