@@ -22,19 +22,23 @@ export class AchievementServiceService {
     );
   }
 
-  checkAchievements(achievements: Achievement[]) {
+  checkAchievements(achievements: Array<Achievement>) {
     const us: User = this.storage.getStoredUser();
     this.checkAlcoholVrij().subscribe(
       result => {
         console.log(result);
-        // if(result) {
-        //   //TODO: get correct achievement and datum
-        //   us.userAchievements.push(new UserAchievement(achievements[0], '20-2-2019'));
-        //   this.http.post<any>('http://localhost:8080/user', us).pipe(
-        //     catchError(this.handleError<User>('postAchievementForUser'))
-        //   ).subscribe( res => {console.log(res.username)});
-        //   console.log('Alcoholvrij is gehaald!');
-        // }
+        if(result) {
+          //TODO: get correct achievement and datum
+          us.userAchievements.push(new UserAchievement(achievements[0], '20-2-2019'));
+          console.log(us.userAchievements);
+          console.log(us);
+          //Todo: save userAchievement
+          
+          // this.http.post<User>('http://localhost:8080/user', us).pipe(
+          //   catchError(this.handleError<User>('postAchievementForUser'))
+          // ).subscribe();
+          console.log('Alcoholvrij is gehaald!');
+        }
       }
     );
   }

@@ -10,20 +10,20 @@ import {AchievementServiceService} from "../achievement-service.service";
 })
 export class AchievementsComponent implements OnInit {
 
-  achievements: Achievement[];
+  achievements: Array<Achievement> = new Array<Achievement>();
   headElements = ['Naam', 'Score', 'Omschrijving', 'Behaald op'];
 
   constructor(private storage: LocalStorageService, private achievementService: AchievementServiceService) { }
 
   ngOnInit() {
     this.findAll();
-    this.achievementService.checkAchievements(this.achievements);
   }
 
   private findAll() {
     this.achievementService.findAll().subscribe(
       result => {
         this.achievements = result;
+        this.achievementService.checkAchievements(result);
       }
     )
   }

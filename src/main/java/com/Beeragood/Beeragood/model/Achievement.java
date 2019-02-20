@@ -14,7 +14,6 @@ public class Achievement {
 
 	private String naam;
 	private String omschrijving;
-	private String datumBehaald;
 	private String plaatje;
 	private int score;
 
@@ -24,11 +23,10 @@ public class Achievement {
 
 	public Achievement() {}
 
-	public Achievement(int id, String naam, String omschrijving, String datumBehaald, String plaatje, int score) {
+	public Achievement(int id, String naam, String omschrijving, String plaatje, int score) {
 		this.id = id;
 		this.naam = naam;
 		this.omschrijving = omschrijving;
-		this.datumBehaald = datumBehaald;
 		this.plaatje = plaatje;
 		this.score = score;
 	}
@@ -51,14 +49,6 @@ public class Achievement {
 
 	public void setOmschrijving(String omschrijving) {
 		this.omschrijving = omschrijving;
-	}
-
-	public String getDatumBehaald() {
-		return datumBehaald;
-	}
-
-	public void setDatumBehaald(String datumBehaald) {
-		this.datumBehaald = datumBehaald;
 	}
 
 	public String getPlaatje() {
@@ -91,7 +81,6 @@ public class Achievement {
 			"id=" + id +
 			", naam='" + naam + '\'' +
 			", omschrijving='" + omschrijving + '\'' +
-			", datumBehaald='" + datumBehaald + '\'' +
 			", plaatje='" + plaatje + '\'' +
 			", score=" + score +
 			", userAchievements=" + userAchievements +
