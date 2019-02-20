@@ -62,7 +62,7 @@ public class UserController {
     public int updateUserWithAchievement(@PathVariable  int uid, @PathVariable int aid, @RequestBody UserAchievement userAchievement) {
 //        Achievement a = this.achievementService.selectAchievement(aid);
 //        UserAchievement ua = new UserAchievement(a, LocalDate.now().toString());
-          User user = this.achievementService.selectAchievement(uid);
+        User user = this.achievementService.selectAchievement(uid).iterator().next();
         User u = new User(user.getId(),user.getNaam(),user.getLeeftijd(), user.getUsername(),user.getPassword(),user.getScore(),userAchievement);
         return userService.save(u).getId();
     }
