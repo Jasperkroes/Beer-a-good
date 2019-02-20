@@ -5,6 +5,9 @@ import {Bier} from "./Bier";
 import {catchError} from "rxjs/operators";
 import {Achievement} from "./Achievement";
 import {LocalStorageService} from "./LocalStorageService";
+import {User} from "./User";
+import {UserAchievement} from "./UserAchievement";
+import {getLocaleDateFormat} from "@angular/common";
 
 @Injectable({
   providedIn: 'root'
@@ -19,13 +22,19 @@ export class AchievementServiceService {
     );
   }
 
-  checkAchievements() {
+  checkAchievements(achievements: Achievement[]) {
+    const us: User = this.storage.getStoredUser();
     this.checkAlcoholVrij().subscribe(
       result => {
-        if(result) {
-          //Todo: Post newly achieved achievements to the db.
-          console.log('Alcoholvrij is gehaald!');
-        }
+        console.log(result);
+        // if(result) {
+        //   //TODO: get correct achievement and datum
+        //   us.userAchievements.push(new UserAchievement(achievements[0], '20-2-2019'));
+        //   this.http.post<any>('http://localhost:8080/user', us).pipe(
+        //     catchError(this.handleError<User>('postAchievementForUser'))
+        //   ).subscribe( res => {console.log(res.username)});
+        //   console.log('Alcoholvrij is gehaald!');
+        // }
       }
     );
   }

@@ -1,3 +1,5 @@
+import {UserAchievement} from "./UserAchievement";
+
 export class Achievement {
   public id = 0;
   public naam: String;
@@ -5,6 +7,7 @@ export class Achievement {
   public omschrijving: String;
   public datumBehaald: String;
   public plaatje: String;
+  public userAchievements: Set<UserAchievement> = new Set<UserAchievement>();
 
 
   constructor(id: number, naam: String, score: number, omschrijving: String, datumBehaald: String, plaatje: String) {

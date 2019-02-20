@@ -5,6 +5,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import java.io.Serializable;
+import java.util.Objects;
 
 @Entity
 public class UserAchievement implements Serializable {
@@ -58,5 +59,25 @@ public class UserAchievement implements Serializable {
 			", achievement=" + achievement +
 			", datumBehaald='" + datumBehaald + '\'' +
 			'}';
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (!(o instanceof UserAchievement)) {
+			return false;
+		}
+		UserAchievement that = (UserAchievement) o;
+		return Objects.equals(user, that.user) &&
+			Objects.equals(achievement, that.achievement) &&
+			Objects.equals(datumBehaald, that.datumBehaald);
+	}
+
+	@Override
+	public int hashCode() {
+
+		return Objects.hash(user.getNaam(), achievement.getNaam(), datumBehaald);
 	}
 }

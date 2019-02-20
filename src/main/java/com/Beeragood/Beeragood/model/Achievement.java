@@ -1,5 +1,7 @@
 package com.Beeragood.Beeragood.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -17,6 +19,7 @@ public class Achievement {
 	private int score;
 
 	@OneToMany(mappedBy = "achievement", cascade = CascadeType.ALL)
+	@JsonIgnoreProperties("user")
 	private Set<UserAchievement> userAchievements;
 
 	public Achievement() {}
