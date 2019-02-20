@@ -2,6 +2,7 @@ package com.Beeragood.Beeragood.services;
 
 import com.Beeragood.Beeragood.model.Achievement;
 
+import com.Beeragood.Beeragood.model.User;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -22,4 +23,9 @@ public interface AchievementService extends CrudRepository<Achievement, Integer>
 	int findYear(int id);
 
 	Iterable<Achievement> findByNaam(String naam);
+
+	Achievement findById(int id);
+
+	@Query(value = "select * from user where id = :uid", nativeQuery = true)
+	User selectAchievement(int uid);
 }

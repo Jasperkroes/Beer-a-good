@@ -22,7 +22,6 @@ export class User{
       ua.user = this;
     });
     this.userAchievements = uas;
-
   }
 
 

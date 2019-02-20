@@ -3,7 +3,10 @@ package com.Beeragood.Beeragood.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Entity
 public class Achievement {
@@ -19,7 +22,7 @@ public class Achievement {
 
 	@OneToMany(mappedBy = "achievement", cascade = CascadeType.ALL)
 	@JsonIgnoreProperties("user")
-	private Set<UserAchievement> userAchievements;
+	private Set<UserAchievement> userAchievements = new HashSet<>();
 
 	public Achievement() {}
 

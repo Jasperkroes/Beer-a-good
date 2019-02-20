@@ -2,6 +2,7 @@ package com.Beeragood.Beeragood.controllers;
 
 import com.Beeragood.Beeragood.model.Achievement;
 import com.Beeragood.Beeragood.model.Bier;
+import com.Beeragood.Beeragood.model.User;
 import com.Beeragood.Beeragood.services.AchievementService;
 import javafx.util.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,8 +33,11 @@ public class AchievementController {
 
 	@ResponseBody
 	@RequestMapping(value = "/achievementAlcoholVrij/{id}", method = RequestMethod.GET)
-	public boolean validateAlcoholVrij(@PathVariable int id) {
-		return (achievementService.findAlcoholVrijeBiertjesRatingsVanUser(id) > 0);
+	public Achievement validateAlcoholVrij(@PathVariable int id) {
+		if (achievementService.findAlcoholVrijeBiertjesRatingsVanUser(id) > 0) {
+			return achievementService.findByNaam("De Nullpointer").iterator().next();
+		}
+		return new Achievement(0,"","","",0);
 	}
 
 	@ResponseBody

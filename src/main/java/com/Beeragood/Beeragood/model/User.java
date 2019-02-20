@@ -23,7 +23,7 @@ public class User {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonIgnoreProperties("achievement")
-    private Set<UserAchievement> userAchievements;
+    private Set<UserAchievement> userAchievements = new HashSet<>();
 
     public User() {}
 

@@ -6,15 +6,16 @@ import {catchError} from "rxjs/operators";
 import {Achievement} from "./Achievement";
 import {LocalStorageService} from "./LocalStorageService";
 import {User} from "./User";
+import {UserServiceService} from "./user-service.service";
 import {UserAchievement} from "./UserAchievement";
-import {getLocaleDateFormat} from "@angular/common";
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AchievementServiceService {
 
-  constructor(private http: HttpClient, private storage: LocalStorageService) { }
+  constructor(private http: HttpClient, private storage: LocalStorageService, private userService: UserServiceService) { }
 
   findAll(): Observable<Achievement[]>  {
     return this.http.get<any>('http://localhost:8080/achievement').pipe(
@@ -26,26 +27,29 @@ export class AchievementServiceService {
     const us: User = this.storage.getStoredUser();
     this.checkAlcoholVrij().subscribe(
       result => {
-        console.log(result);
-        if(result) {
+        console.log(result.id);
+        if(result.id>0) {
+          const ua: UserAchievement = new UserAchievement(result, Date());
+          console.log(ua);
           //TODO: get correct achievement and datum
-          us.userAchievements.push(new UserAchievement(achievements[0], '20-2-2019'));
-          console.log(us.userAchievements);
-          console.log(us);
+          this.http.put<any>('http://localhost:8080/user/'+this.storage.getStoredUser().id+'/achievement/'+result.id,
+            ua).pipe().subscribe()
+//new User(us.id,us.naam,us.leeftijd,us.username,us.password,us.score,new UserAchievement(result, '-'))
           //Todo: save userAchievement
-          
-          // this.http.post<User>('http://localhost:8080/user', us).pipe(
+
+          // this.userService.saveUser(us).subscribe();
+          // this.http.post<any>('http://localhost:8080/user', us).pipe(
           //   catchError(this.handleError<User>('postAchievementForUser'))
           // ).subscribe();
-          console.log('Alcoholvrij is gehaald!');
+
         }
       }
     );
   }
 
-  checkAlcoholVrij(): Observable<boolean> {
+  checkAlcoholVrij(): Observable<Achievement> {
     return this.http.get<any>('http://localhost:8080/achievementAlcoholVrij/'+this.storage.getStoredUser().id).pipe(
-      catchError(this.handleError<boolean>(`findAll`))
+      catchError(this.handleError<Achievement>(`findAll`))
     );
   }
 

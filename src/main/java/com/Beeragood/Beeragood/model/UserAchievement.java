@@ -1,12 +1,12 @@
 package com.Beeragood.Beeragood.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
+@Embeddable
 @Entity
 public class UserAchievement implements Serializable {
 	@Id
@@ -77,7 +77,6 @@ public class UserAchievement implements Serializable {
 
 	@Override
 	public int hashCode() {
-
 		return Objects.hash(user.getNaam(), achievement.getNaam(), datumBehaald);
 	}
 }

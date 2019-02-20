@@ -6,14 +6,15 @@ export class Achievement {
   public score: number;
   public omschrijving: String;
   public plaatje: String;
-  public userAchievements: Set<UserAchievement> = new Set<UserAchievement>();
+  public userAchievements: UserAchievement[];
 
 
-  constructor(id: number, naam: String, score: number, omschrijving: String, plaatje: String) {
+  constructor(id: number, naam: String, score: number, omschrijving: String, plaatje: String, ...uas: UserAchievement[]) {
     this.id = id;
     this.naam = naam;
     this.score = score;
     this.omschrijving = omschrijving;
     this.plaatje = plaatje;
+    this.userAchievements = uas;
   }
 }
