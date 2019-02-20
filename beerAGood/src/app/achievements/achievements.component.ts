@@ -13,7 +13,8 @@ export class AchievementsComponent implements OnInit {
   achievements: Achievement[];
   headElements = ['Naam', 'Score', 'Omschrijving', 'Behaald op'];
 
-  constructor(private storage: LocalStorageService, private achievementService: AchievementServiceService) { }
+  constructor(private storage: LocalStorageService, private achievementService: AchievementServiceService) {
+  }
 
   ngOnInit() {
     this.findAll();

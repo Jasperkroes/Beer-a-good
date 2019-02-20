@@ -1,0 +1,16 @@
+<div>
+  <!--Todo: 1 click zorgt ervoor dat je naar de rate pagina gaat, daar wordt die wel goed weergegeven en dan met nog een click zie je de achievement (moet met 1 click gaan).-->
+  <button id="alertButton" routerLink="../rate" class="btn btn-primary btn-lg" (click)="reset()" [hidden]="show">
+    <span class="badge badge-light"  style="color: #ffc500; background-color: white" >1</span>
+  </button>
+</div>
+
+<div>
+  <br>
+  <!--Todo: eventueel met achievementnaam en achievement img en dan getal in de span decrement met 1/naar 0.-->
+  <p *ngFor="let alert of alerts" routerLink="../achievements">
+    <ngb-alert  id="alertBox" [type]="alert.type" (close)="close(alert)">{{ alert.message }}
+      <img src="../../assets/achImages/imageedit_7_5760120604.png" width="5%">
+    </ngb-alert>
+  </p>
+</div>

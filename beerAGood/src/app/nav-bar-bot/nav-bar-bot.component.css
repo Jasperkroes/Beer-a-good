@@ -1,0 +1,17 @@
+#alertButton {
+  background-color: #ffc500;
+  float: right;
+  bottom: 1%;
+  right: 1%;
+  position: fixed;
+  max-width: 10%;
+  border-color: #ffc500;
+  border-width: thick;
+  border-radius: 25%;
+}
+
+#alertBox {
+  background-color: #ffc500;
+  max-width: 45%;
+  float: right;
+}

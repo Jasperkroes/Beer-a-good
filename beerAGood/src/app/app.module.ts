@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BierListComponent } from './bier-list/bier-list.component';
@@ -16,7 +15,8 @@ import { AchievementsComponent } from './achievements/achievements.component';
 import { GeschiedenisComponent } from './geschiedenis/geschiedenis.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
-import { NotificationComponent } from './notification/notification.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NavBarBotComponent } from './nav-bar-bot/nav-bar-bot.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +29,7 @@ import { NotificationComponent } from './notification/notification.component';
     AchievementsComponent,
     GeschiedenisComponent,
     NavbarComponent,
-    NotificationComponent,
+    NavBarBotComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +37,8 @@ import { NotificationComponent } from './notification/notification.component';
     HttpClientModule,
     FormsModule,
     StorageServiceModule,
-    MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(),
+    NgbModule.forRoot()
   ],
   providers: [LocalStorageService],
   bootstrap: [AppComponent]
