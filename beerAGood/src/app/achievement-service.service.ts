@@ -27,21 +27,9 @@ export class AchievementServiceService {
     const us: User = this.storage.getStoredUser();
     this.checkAlcoholVrij().subscribe(
       (result: Achievement) => {
-        console.log(result.id);
         if(result.id>0) {
-          //TODO: get correct achievement and datum
           this.http.put<any>('http://localhost:8080/user/'+this.storage.getStoredUser().id+'/achievement/'+result.id,
-            Date()).pipe(this.handleError<UserAchievement>('0pointer')).subscribe(result => {
-              console.log(result);
-          });
-//new User(us.id,us.naam,us.leeftijd,us.username,us.password,us.score,new UserAchievement(result, '-'))
-          //Todo: save userAchievement
-
-          // this.userService.saveUser(us).subscribe();
-          // this.http.post<any>('http://localhost:8080/user', us).pipe(
-          //   catchError(this.handleError<User>('postAchievementForUser'))
-          // ).subscribe();
-
+            Date()).pipe().subscribe();
         }
       }
     );
@@ -68,6 +56,12 @@ export class AchievementServiceService {
   checkYear() {
     return this.http.get<any>('http://localhost:8080/achievementYear/'+this.storage.getStoredUser().id).pipe(
       catchError(this.handleError<boolean>(`findAll`))
+    );
+  }
+
+  checkGehaald(id: number): Observable<UserAchievement> {
+    return this.http.get<any>('http://localhost:8080/checkGehaald/'+id+'/'+this.storage.getStoredUser().id).pipe(
+      catchError(this.handleError<UserAchievement>(`checkgehaald`))
     );
   }
 

@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
+import java.util.Optional;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @Controller
@@ -29,5 +30,21 @@ public class UserAchievementController {
 //		System.out.println(user + " : " + achievement);
 		String a = LocalDate.now().toString();
 		return userAchievementService.save(new UserAchievement(new UserAchievementIdentity(user, achievement), a));
+	}
+
+	@ResponseBody
+	@RequestMapping(value = "/checkGehaald/{aid}/{uid}", method = RequestMethod.GET)
+	public UserAchievement checkGehaald(@PathVariable int aid, @PathVariable int uid) {
+		UserAchievement uaMock = new UserAchievement(new UserAchievementIdentity(null,null), "-");
+		Optional<User> user = userService.findById(uid);
+		if(!user.isPresent()) {
+			return uaMock;
+		}
+		Optional<Achievement> achievement = achievementService.findById(aid);
+		if(!achievement.isPresent()) {
+			return uaMock;
+		}
+		Optional<UserAchievement> ua = userAchievementService.findById(new UserAchievementIdentity(user.get(), achievement.get()));
+		return ua.map(userAchievement -> ua.get()).orElse(uaMock);
 	}
 }

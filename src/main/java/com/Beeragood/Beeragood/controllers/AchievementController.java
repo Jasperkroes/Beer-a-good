@@ -1,9 +1,8 @@
 package com.Beeragood.Beeragood.controllers;
 
-import com.Beeragood.Beeragood.model.Achievement;
-import com.Beeragood.Beeragood.model.Bier;
-import com.Beeragood.Beeragood.model.User;
+import com.Beeragood.Beeragood.model.*;
 import com.Beeragood.Beeragood.services.AchievementService;
+import com.Beeragood.Beeragood.services.UserAchievementService;
 import javafx.util.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,6 +15,7 @@ import java.util.*;
 public class AchievementController {
 
 	@Autowired private AchievementService achievementService;
+	@Autowired private UserAchievementService userAchievementService;
 
 	//curl  http://localhost:8080/achievement
 	@ResponseBody
