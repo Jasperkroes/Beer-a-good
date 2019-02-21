@@ -13,7 +13,7 @@ export class AchievementsComponent implements OnInit {
 
   achievements: Array<Achievement> = new Array<Achievement>();
   headElements = ['Naam', 'Score', 'Omschrijving', 'Behaald op'];
-  gehaald: Array<String> = new Array<String>()
+  gehaald: Map<number, String> = new Map<number, String>()
 
   constructor(private storage: LocalStorageService, private achievementService: AchievementServiceService) { }
 
@@ -35,7 +35,7 @@ export class AchievementsComponent implements OnInit {
   checkAllGehaald(achievements: Achievement[]) {
     achievements.forEach(a => {
       this.achievementService.checkGehaald(a.id).subscribe( result => {
-        this.gehaald[a.id] = result.datumBehaald;
+        this.gehaald.set(a.id,result.datumBehaald);
       });
     })
   }
