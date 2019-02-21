@@ -4,7 +4,10 @@
   bottom: 1%;
   right: 1%;
   position: fixed;
-  max-width: 10%;
+  height: 70px;
+  width: 70px;
+  min-width: 50px;
+  min-height: 50px;
   border-color: #ffc500;
   border-width: thick;
   border-radius: 25%;
