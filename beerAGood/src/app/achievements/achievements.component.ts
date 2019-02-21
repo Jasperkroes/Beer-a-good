@@ -15,7 +15,8 @@ export class AchievementsComponent implements OnInit {
   headElements = ['Naam', 'Score', 'Omschrijving', 'Behaald op'];
   gehaald: Map<number, String> = new Map<number, String>()
 
-  constructor(private storage: LocalStorageService, private achievementService: AchievementServiceService) { }
+  constructor(private storage: LocalStorageService, private achievementService: AchievementServiceService) {
+  }
 
   ngOnInit() {
     this.findAll();

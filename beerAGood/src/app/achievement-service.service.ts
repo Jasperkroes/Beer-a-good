@@ -25,7 +25,7 @@ export class AchievementServiceService {
 
   checkAchievements(achievements: Array<Achievement>) {
     achievements.forEach(a => {
-      if (a.naam === 'De Nulpointer') {
+      if (a.naam === 'De Nullpointer') {
         this.checkAlcoholVrij().subscribe(
           (result: Achievement) => {
             this.putAchievement(result)

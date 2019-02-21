@@ -1,6 +1,7 @@
 .navbar.navbar-expand-md {
   background-color: #ffc500;
   color: white;
+  width: 100%;
 }
 
 .nav-link.dropdown-toggle {

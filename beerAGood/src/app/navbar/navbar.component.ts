@@ -8,9 +8,9 @@ import {LocalStorageService} from "../LocalStorageService";
 })
 export class NavbarComponent implements OnInit {
 
+
   constructor(private storage: LocalStorageService) { }
 
   ngOnInit() {
   }
-
 }
