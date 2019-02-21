@@ -36,13 +36,13 @@
             <th scope="row">
 
               <p>{{achievement.naam}}</p>
-              <img [hidden]="(achievement.datumBehaald==='-')" src='{{achievement.plaatje}}' alt="" style="max-width: 100px; width: 40%">
-              <img [hidden]="!(achievement.datumBehaald==='-')" src="https://media.discordapp.net/attachments/545539481239814165/547034768634675230/imageedit_5_7791987400.png" style="max-width: 100px; width: 40%">
+              <img [hidden]="(gehaald.get(achievement.id) === '-')" src='{{achievement.plaatje}}' alt="" style="max-width: 100px; width: 40%">
+              <img [hidden]="!(gehaald.get(achievement.id) === '-')" src="https://media.discordapp.net/attachments/545539481239814165/547034768634675230/imageedit_5_7791987400.png" style="max-width: 100px; width: 40%">
 
             </th>
             <td>{{achievement.score}}</td>
             <td>{{achievement.omschrijving}}</td>
-            <td>{{achievement.datumBehaald}}</td>
+            <td>{{gehaald.get(achievement.id)}}</td>
           </tr>
           </tbody>
         </table>
