@@ -24,15 +24,43 @@ export class AchievementServiceService {
   }
 
   checkAchievements(achievements: Array<Achievement>) {
-    const us: User = this.storage.getStoredUser();
-    this.checkAlcoholVrij().subscribe(
-      (result: Achievement) => {
-        if(result.id>0) {
-          this.http.put<any>('http://localhost:8080/user/'+this.storage.getStoredUser().id+'/achievement/'+result.id,
-            Date()).pipe().subscribe();
-        }
+    achievements.forEach(a => {
+      if (a.naam === 'De Nulpointer') {
+        this.checkAlcoholVrij().subscribe(
+          (result: Achievement) => {
+            this.putAchievement(result)
+          }
+        );
       }
-    );
+      if (a.naam === 'De Koning') {
+        this.checkKoningsdag().subscribe(
+          (result: Achievement) => {
+            this.putAchievement(result);
+          }
+        );
+      }
+      if (a.naam === '5') {
+        this.checkVijfVerschillende().subscribe(
+          (result: Achievement) => {
+            this.putAchievement(result);
+          }
+        );
+      }
+      if (a.naam === 'Happy new beer') {
+        this.checkYear().subscribe(
+          (result: Achievement) => {
+            this.putAchievement(result);
+          }
+        );
+      }
+    });
+  }
+
+  putAchievement(result: Achievement) {
+    if(result.id>0) {
+      this.http.put<any>('http://localhost:8080/user/'+this.storage.getStoredUser().id+'/achievement/'+result.id,
+        Date()).pipe().subscribe();
+    }
   }
 
   checkAlcoholVrij(): Observable<Achievement> {
@@ -43,19 +71,19 @@ export class AchievementServiceService {
 
   checkVijfVerschillende() {
     return this.http.get<any>('http://localhost:8080/achievementVijfVerschillende/'+this.storage.getStoredUser().id).pipe(
-      catchError(this.handleError<boolean>(`findAll`))
+      catchError(this.handleError<Achievement>(`findAll`))
     );
   }
 
   checkKoningsdag() {
     return this.http.get<any>('http://localhost:8080/achievementKoningsdag/'+this.storage.getStoredUser().id).pipe(
-      catchError(this.handleError<boolean>(`findAll`))
+      catchError(this.handleError<Achievement>(`findAll`))
     );
   }
 
   checkYear() {
     return this.http.get<any>('http://localhost:8080/achievementYear/'+this.storage.getStoredUser().id).pipe(
-      catchError(this.handleError<boolean>(`findAll`))
+      catchError(this.handleError<Achievement>(`findAll`))
     );
   }
 
