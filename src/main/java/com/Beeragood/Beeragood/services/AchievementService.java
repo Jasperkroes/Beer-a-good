@@ -24,8 +24,6 @@ public interface AchievementService extends CrudRepository<Achievement, Integer>
 
 	Iterable<Achievement> findByNaam(String naam);
 
-	Achievement findById(int id);
-
 	@Query(value = "select * from user where id = :uid", nativeQuery = true)
 	Iterable<User> selectAchievement(int uid);
 }

@@ -20,7 +20,6 @@ import java.util.Optional;
 public class UserController {
 
     @Autowired  private UserService userService;
-    @Autowired private AchievementService achievementService;
 
     //curl -H "Content-Type: application/json" -X POST -d '{"id": 0, "task", "description","date": "taskTest"}' http://localhost:8080/user
     @ResponseBody
@@ -54,17 +53,6 @@ public class UserController {
     @RequestMapping(value = "/user/{id}", method = RequestMethod.PUT)
     public int updateUser(@PathVariable  int id, @RequestBody User user) {
         return userService.save(user).getId();
-    }
-
-    //curl -H "Content-Type: application/json" -X PUT -d '{"id": 1, "task", "description","date": "taskTest"}' http://localhost:8080/user/1
-    @ResponseBody
-    @RequestMapping(value = "/user/{uid}/achievement/{aid}", method = RequestMethod.PUT)
-    public int updateUserWithAchievement(@PathVariable  int uid, @PathVariable int aid, @RequestBody UserAchievement userAchievement) {
-//        Achievement a = this.achievementService.selectAchievement(aid);
-//        UserAchievement ua = new UserAchievement(a, LocalDate.now().toString());
-        User user = this.achievementService.selectAchievement(uid).iterator().next();
-        User u = new User(user.getId(),user.getNaam(),user.getLeeftijd(), user.getUsername(),user.getPassword(),user.getScore(),userAchievement);
-        return userService.save(u).getId();
     }
 
     //curl -X DELETE http://localhost:8080/user/1

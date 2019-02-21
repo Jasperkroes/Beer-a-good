@@ -21,9 +21,8 @@ public class User {
     private String password;
     private int score;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    @JsonIgnoreProperties("achievement")
-    private Set<UserAchievement> userAchievements = new HashSet<>();
+    @OneToMany
+    private Set<UserAchievement> userAchievements;
 
     public User() {}
 

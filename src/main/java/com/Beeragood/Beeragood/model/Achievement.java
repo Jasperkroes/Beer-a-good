@@ -20,8 +20,7 @@ public class Achievement {
 	private String plaatje;
 	private int score;
 
-	@OneToMany(mappedBy = "achievement", cascade = CascadeType.ALL)
-	@JsonIgnoreProperties("user")
+	@OneToMany
 	private Set<UserAchievement> userAchievements = new HashSet<>();
 
 	public Achievement() {}
@@ -86,7 +85,6 @@ public class Achievement {
 			", omschrijving='" + omschrijving + '\'' +
 			", plaatje='" + plaatje + '\'' +
 			", score=" + score +
-			", userAchievements=" + userAchievements +
 			'}';
 	}
 }

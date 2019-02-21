@@ -26,14 +26,14 @@ export class AchievementServiceService {
   checkAchievements(achievements: Array<Achievement>) {
     const us: User = this.storage.getStoredUser();
     this.checkAlcoholVrij().subscribe(
-      result => {
+      (result: Achievement) => {
         console.log(result.id);
         if(result.id>0) {
-          const ua: UserAchievement = new UserAchievement(result, Date());
-          console.log(ua);
           //TODO: get correct achievement and datum
           this.http.put<any>('http://localhost:8080/user/'+this.storage.getStoredUser().id+'/achievement/'+result.id,
-            ua).pipe().subscribe()
+            Date()).pipe(this.handleError<UserAchievement>('0pointer')).subscribe(result => {
+              console.log(result);
+          });
 //new User(us.id,us.naam,us.leeftijd,us.username,us.password,us.score,new UserAchievement(result, '-'))
           //Todo: save userAchievement
 

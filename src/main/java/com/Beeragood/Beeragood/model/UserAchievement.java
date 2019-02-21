@@ -9,39 +9,33 @@ import java.util.Objects;
 @Embeddable
 @Entity
 public class UserAchievement implements Serializable {
-	@Id
-	@ManyToOne
-	@JoinColumn
-	private User user;
 
-	@Id
-	@ManyToOne
-	@JoinColumn
-	private Achievement achievement;
+	@EmbeddedId
+	private UserAchievementIdentity userAchievementIdentity;
 
 	private String datumBehaald;
 
 	public UserAchievement() {}
 
-	public UserAchievement(Achievement achievement, String datumBehaald) {
-		this.achievement = achievement;
+	public UserAchievement(UserAchievementIdentity userAchievementIdentity, String datumBehaald) {
+		this.userAchievementIdentity = userAchievementIdentity;
 		this.datumBehaald = datumBehaald;
 	}
 
 	public User getUser() {
-		return user;
+		return userAchievementIdentity.getUser();
 	}
 
 	public void setUser(User user) {
-		this.user = user;
+		this.userAchievementIdentity.setUser(user);
 	}
 
 	public void setAchievement(Achievement achievement) {
-		this.achievement = achievement;
+		this.userAchievementIdentity.setAchievement(achievement);
 	}
 
 	public Achievement getAchievement() {
-		return achievement;
+		return userAchievementIdentity.getAchievement();
 	}
 
 	public String getDatumBehaald() {
@@ -55,28 +49,10 @@ public class UserAchievement implements Serializable {
 	@Override
 	public String toString() {
 		return "UserAchievement{" +
-			"user=" + user +
-			", achievement=" + achievement +
+			"user=" + userAchievementIdentity.getUser().getId() +
+			", achievement=" + userAchievementIdentity.getAchievement().getId() +
 			", datumBehaald='" + datumBehaald + '\'' +
 			'}';
 	}
 
-	@Override
-	public boolean equals(Object o) {
-		if (this == o) {
-			return true;
-		}
-		if (!(o instanceof UserAchievement)) {
-			return false;
-		}
-		UserAchievement that = (UserAchievement) o;
-		return Objects.equals(user, that.user) &&
-			Objects.equals(achievement, that.achievement) &&
-			Objects.equals(datumBehaald, that.datumBehaald);
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(user.getNaam(), achievement.getNaam(), datumBehaald);
-	}
 }
