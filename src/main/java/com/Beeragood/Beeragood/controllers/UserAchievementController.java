@@ -26,7 +26,8 @@ public class UserAchievementController {
 	public UserAchievement updateUserWithAchievement(@PathVariable int uid, @PathVariable int aid, @RequestBody String date) {
 		User user = userService.findById(uid).get();
 		Achievement achievement = achievementService.findById(aid).get();
-		System.out.println(user + " : " + achievement);
-		return userAchievementService.save(new UserAchievement(new UserAchievementIdentity(user, achievement), LocalDate.now().toString()));
+//		System.out.println(user + " : " + achievement);
+		String a = LocalDate.now().toString();
+		return userAchievementService.save(new UserAchievement(new UserAchievementIdentity(user, achievement), a));
 	}
 }
