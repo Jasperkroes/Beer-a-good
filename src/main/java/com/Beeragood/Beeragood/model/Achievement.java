@@ -1,9 +1,12 @@
 package com.Beeragood.Beeragood.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Entity
 public class Achievement {
@@ -14,17 +17,18 @@ public class Achievement {
 
 	private String naam;
 	private String omschrijving;
-	private String datumBehaald;
 	private String plaatje;
 	private int score;
 
+	@OneToMany
+	private Set<UserAchievement> userAchievements = new HashSet<>();
+
 	public Achievement() {}
 
-	public Achievement(int id, String naam, String omschrijving, String datumBehaald, String plaatje, int score) {
+	public Achievement(int id, String naam, String omschrijving, String plaatje, int score) {
 		this.id = id;
 		this.naam = naam;
 		this.omschrijving = omschrijving;
-		this.datumBehaald = datumBehaald;
 		this.plaatje = plaatje;
 		this.score = score;
 	}
@@ -49,14 +53,6 @@ public class Achievement {
 		this.omschrijving = omschrijving;
 	}
 
-	public String getDatumBehaald() {
-		return datumBehaald;
-	}
-
-	public void setDatumBehaald(String datumBehaald) {
-		this.datumBehaald = datumBehaald;
-	}
-
 	public String getPlaatje() {
 		return plaatje;
 	}
@@ -73,13 +69,20 @@ public class Achievement {
 		this.score = score;
 	}
 
+	public Set<UserAchievement> getUserAchievements() {
+		return userAchievements;
+	}
+
+	public void setUserAchievements(Set<UserAchievement> userAchievements) {
+		this.userAchievements = userAchievements;
+	}
+
 	@Override
 	public String toString() {
 		return "Achievement{" +
 			"id=" + id +
 			", naam='" + naam + '\'' +
 			", omschrijving='" + omschrijving + '\'' +
-			", datumBehaald='" + datumBehaald + '\'' +
 			", plaatje='" + plaatje + '\'' +
 			", score=" + score +
 			'}';

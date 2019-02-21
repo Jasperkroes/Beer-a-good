@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {User} from "../User";
 import {UserServiceService} from "../user-service.service";
+import {UserAchievement} from "../UserAchievement";
 
 @Component({
   selector: 'app-user-form',

@@ -5,13 +5,17 @@ import {Bier} from "./Bier";
 import {catchError} from "rxjs/operators";
 import {Achievement} from "./Achievement";
 import {LocalStorageService} from "./LocalStorageService";
+import {User} from "./User";
+import {UserServiceService} from "./user-service.service";
+import {UserAchievement} from "./UserAchievement";
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AchievementServiceService {
 
-  constructor(private http: HttpClient, private storage: LocalStorageService) { }
+  constructor(private http: HttpClient, private storage: LocalStorageService, private userService: UserServiceService) { }
 
   findAll(): Observable<Achievement[]>  {
     return this.http.get<any>('http://localhost:8080/achievement').pipe(
@@ -19,9 +23,73 @@ export class AchievementServiceService {
     );
   }
 
-  checkAchievements() {
+  checkAchievements(achievements: Array<Achievement>) {
+    achievements.forEach(a => {
+      if (a.naam === 'De Nulpointer') {
+        this.checkAlcoholVrij().subscribe(
+          (result: Achievement) => {
+            this.putAchievement(result)
+          }
+        );
+      }
+      if (a.naam === 'De Koning') {
+        this.checkKoningsdag().subscribe(
+          (result: Achievement) => {
+            this.putAchievement(result);
+          }
+        );
+      }
+      if (a.naam === '5') {
+        this.checkVijfVerschillende().subscribe(
+          (result: Achievement) => {
+            this.putAchievement(result);
+          }
+        );
+      }
+      if (a.naam === 'Happy new beer') {
+        this.checkYear().subscribe(
+          (result: Achievement) => {
+            this.putAchievement(result);
+          }
+        );
+      }
+    });
+  }
+
+  putAchievement(result: Achievement) {
+    if(result.id>0) {
+      this.http.put<any>('http://localhost:8080/user/'+this.storage.getStoredUser().id+'/achievement/'+result.id,
+        Date()).pipe().subscribe();
+    }
+  }
+
+  checkAlcoholVrij(): Observable<Achievement> {
     return this.http.get<any>('http://localhost:8080/achievementAlcoholVrij/'+this.storage.getStoredUser().id).pipe(
-      catchError(this.handleError<Bier>(`findAll`))
+      catchError(this.handleError<Achievement>(`findAll`))
+    );
+  }
+
+  checkVijfVerschillende() {
+    return this.http.get<any>('http://localhost:8080/achievementVijfVerschillende/'+this.storage.getStoredUser().id).pipe(
+      catchError(this.handleError<Achievement>(`findAll`))
+    );
+  }
+
+  checkKoningsdag() {
+    return this.http.get<any>('http://localhost:8080/achievementKoningsdag/'+this.storage.getStoredUser().id).pipe(
+      catchError(this.handleError<Achievement>(`findAll`))
+    );
+  }
+
+  checkYear() {
+    return this.http.get<any>('http://localhost:8080/achievementYear/'+this.storage.getStoredUser().id).pipe(
+      catchError(this.handleError<Achievement>(`findAll`))
+    );
+  }
+
+  checkGehaald(id: number): Observable<UserAchievement> {
+    return this.http.get<any>('http://localhost:8080/checkGehaald/'+id+'/'+this.storage.getStoredUser().id).pipe(
+      catchError(this.handleError<UserAchievement>(`checkgehaald`))
     );
   }
 

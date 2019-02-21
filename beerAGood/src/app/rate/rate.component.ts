@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {RateService} from "../rate.service";
 import {Rate} from "../Rate";
 import {LocalStorageService} from "../LocalStorageService";
+import {AchievementServiceService} from "../achievement-service.service";
 
 @Component({
   selector: 'app-rate',
@@ -13,7 +14,7 @@ export class RateComponent implements OnInit {
   submitted = false;
   invalid = false;
 
-  constructor(private rateService: RateService, private  storage: LocalStorageService) { }
+  constructor(private rateService: RateService, private  storage: LocalStorageService, private achievementService: AchievementServiceService) { }
 
   onSubmit() {
     this.submitted = true;
@@ -33,6 +34,14 @@ export class RateComponent implements OnInit {
       this.invalid = true;
       console.log(this.model.user + " : " + this.model.bier)
     }
+  }
+
+  checkAchievements(){
+    // this.achievementService.checkAchievements().subscribe();
+    this.achievementService.checkAlcoholVrij().subscribe();
+    this.achievementService.checkVijfVerschillende().subscribe();
+    this.achievementService.checkKoningsdag().subscribe();
+    this.achievementService.checkYear().subscribe();
   }
 
   ngOnInit(): void {

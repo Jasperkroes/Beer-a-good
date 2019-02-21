@@ -5,6 +5,7 @@ import {catchError, filter, first} from "rxjs/operators";
 import {User} from "./User";
 import {findAll} from "@angular/compiler-cli/src/ngcc/src/utils";
 import {LocalStorageService} from "./LocalStorageService";
+import {UserAchievement} from "./UserAchievement";
 
 @Injectable({
   providedIn: 'root'
