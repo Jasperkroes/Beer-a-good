@@ -25,6 +25,7 @@ export class RateComponent implements OnInit {
     this.model.omschrijving = omschrijving;
     this.model.datum = datum;
     this.model.locatie = locatie;
+    this.alterModel();
     this.model.user = this.storage.getStoredUser();
     this.model.bier = this.storage.getStoredBier();
     if (this.model.bier.id > 0 && this.model.user.id > 0) {
@@ -32,7 +33,12 @@ export class RateComponent implements OnInit {
       this.onSubmit();
     } else {
       this.invalid = true;
-      console.log(this.model.user + " : " + this.model.bier)
+    }
+  }
+
+  alterModel() {
+    if (this.model.omschrijving.length > 250) {
+      this.model.omschrijving = this.model.omschrijving.substring(0,250);
     }
   }
 
