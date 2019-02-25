@@ -1,0 +1,3 @@
+<select [(ngModel)]="selectedLocatie">
+  <option *ngFor="let locatie of locaties" [ngValue]="locatie">{{locatie.naam}}</option>
+</select>

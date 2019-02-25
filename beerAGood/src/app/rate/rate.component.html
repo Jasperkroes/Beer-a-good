@@ -26,25 +26,10 @@
     <label>Datum</label><br>
     <input type="date" #datum>
     <br>
+    <br>
 
-    <div class="form-group">
-      <br>
-      <label for="exampleFormControlSelect2">Locatie</label>
-
-      <select multiple class="form-control" id="exampleFormControlSelect2" #locatie>
-        <option>Nederland</option>
-        <option>Belgie</option>
-        <option>Duitsland</option>
-        <option>Rest van Europa</option>
-        <option>Midden-Oosten</option>
-        <option>Oceanie</option>
-        <option>Azie</option>
-        <option>Noord-Amerika</option>
-        <option>Midden-Amerika</option>
-        <option>Zuid-Amerika</option>
-      </select>
-    </div>
-
+    <label>Locatie</label><br>
+   <app-locatie-list></app-locatie-list>
   </form>
 <br>
   <button type="button" class="btn btn-primary" id="buttonStars" type="submit" (click)="saveRate(omschrijving.value, datum.value, locatie.value)">Bevestig</button>
