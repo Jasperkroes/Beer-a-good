@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {User} from "../User";
 import {UserServiceService} from "../user-service.service";
 import {UserAchievement} from "../UserAchievement";
+import {sha1} from "sha1";
 
 @Component({
   selector: 'app-user-form',
@@ -36,6 +37,7 @@ export class UserFormComponent implements OnInit{
   }
 
   saveUser() {
+    this.model.password = sha1(this.model.password);
     this.userService.saveUser(this.model).subscribe();
   }
 
@@ -51,7 +53,7 @@ export class UserFormComponent implements OnInit{
     }
   }
 
-  verifyNewUser(username: String) {
+  verifyNewUser(username: string) {
     this.alterUser();
     this.userService.findUserByUserName(username).subscribe(
       result => {

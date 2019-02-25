@@ -4,14 +4,14 @@ import {forEach} from "@angular/router/src/utils/collection";
 export class User{
 
   public id: Number = 0;
-  public naam: String;
+  public naam: string;
   public leeftijd: Number;
-  public username: String;
-  public password: String;
+  public username: string;
+  public password: string;
   public score: number;
   public userAchievements: UserAchievement[];
 
-  constructor(id: Number, naam: String, leeftijd: Number, username: String, password: String, score: number, ...uas: UserAchievement[]) {
+  constructor(id: Number, naam: string, leeftijd: Number, username: string, password: string, score: number, ...uas: UserAchievement[]) {
     this.id = id;
     this.naam = naam;
     this.leeftijd = leeftijd;
