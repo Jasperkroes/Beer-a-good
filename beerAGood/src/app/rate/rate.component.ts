@@ -43,11 +43,9 @@ export class RateComponent implements OnInit {
   }
 
   checkAchievements(){
-    // this.achievementService.checkAchievements().subscribe();
-    this.achievementService.checkAlcoholVrij().subscribe();
-    this.achievementService.checkVijfVerschillende().subscribe();
-    this.achievementService.checkKoningsdag().subscribe();
-    this.achievementService.checkYear().subscribe();
+    this.achievementService.findAll().subscribe(result => {
+      this.achievementService.checkAchievements(result);
+    })
   }
 
   ngOnInit(): void {

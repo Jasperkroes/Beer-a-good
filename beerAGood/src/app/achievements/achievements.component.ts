@@ -48,7 +48,6 @@ export class AchievementsComponent implements OnInit {
         });
       }
     });
-    console.log(this.behaaldeAchievements);
   }
 
   showNietBehaald() {
