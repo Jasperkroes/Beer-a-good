@@ -1,10 +1,15 @@
 <app-navbar></app-navbar>
 <app-nav-bar-bot></app-nav-bar-bot>
+
+<form>
+  <div class="form-group">
+
 <div [hidden]="submitted">
   <label>Biertje</label><br>
   <app-bier-list></app-bier-list>
+</div>
 
-  <div>
+  <div class="form-group">
     <hr>
     <p>Druk op een ster om een rating te geven aan bovenstaand biertje.</p>
     <p>Rating {{model.cijfer}}</p>
@@ -14,27 +19,24 @@
     <img src="../../assets/images/4star.png" alt="" width="10%" (click)="model.cijfer=4">
     <img src="../../assets/images/5star.png" alt="" width="10%" (click)="model.cijfer=5">
   </div>
-  <hr>
-  <br>
 
-
-  <form>
+  <div class="form-group">
     <label>Omschrijving</label>
     <textarea class="form-control" required #omschrijving placeholder="Omschrijving (max 250 karakters)"></textarea>
-    <br>
-    <br>
-    <label>Datum</label><br>
-    <input type="date" #datum>
-    <br>
-    <br>
+  </div>
 
+    <div class="form-group">
+    <label>Datum</label><br>
+      <input type="date" #datum>
+  </div>
+
+    <div class="form-group">
     <label>Locatie</label><br>
     <select [(ngModel)]="selectedLocatie" name="locatie" #locatie>
-      <option *ngFor="let locatie of locaties" [ngValue]="locatie">{{locatie.naam}}</option>
+      <option *ngFor="let locatie of locaties" [ngValue]="locatie">{{locatie.naam} </option>
     </select>
+    </div>
 
-  </form>
-<br>
   <button type="button" class="btn btn-primary" id="buttonStars" type="submit" (click)="saveRate(omschrijving.value, datum.value, selectedLocatie.naam)">Bevestig</button>
   <br>
   <label type="label" class="lbl lbl-primary" [hidden]="!invalid">Vul alle velden in.</label>
@@ -43,3 +45,4 @@
   <h1>De rating is succesvol toegevoegd aan je geschiedenis</h1>
   <button type="button" (click)="checkAchievements()" class="btn btn-primary" routerLink="../homepage">Oké</button>
 </div>
+</form>
