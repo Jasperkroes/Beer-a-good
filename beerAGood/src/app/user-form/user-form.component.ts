@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {User} from "../User";
 import {UserServiceService} from "../user-service.service";
-import {UserAchievement} from "../UserAchievement";
-import {sha1} from "sha1";
+
+import sha1 from "sha1";
 
 @Component({
   selector: 'app-user-form',
@@ -12,7 +12,7 @@ import {sha1} from "sha1";
 export class UserFormComponent implements OnInit{
 
   model = new User(0, '', null, '', '', 0);
-
+  wachtwoord: string = '';
   isnewUser = true;
   submitted = false;
 
@@ -27,19 +27,10 @@ export class UserFormComponent implements OnInit{
     this.model = new User(0,'',0,'','', 0);
   }
 
-  checkPassword(pass: String): boolean {
-    return pass===this.model.password;
-  }
-
-  toLogin() {
-    this.submitted = false;
-
-  }
-
   saveUser() {
-    this.model.password = sha1(this.model.password);
     this.userService.saveUser(this.model).subscribe();
   }
+
 
   alterUser() {
     if (this.model.naam.length > 50) {
@@ -51,6 +42,7 @@ export class UserFormComponent implements OnInit{
     if (this.model.password.length > 50) {
       this.model.password = this.model.password.substring(0, 50);
     }
+    this.model.password = sha1(this.wachtwoord);
   }
 
   verifyNewUser(username: string) {
