@@ -12,7 +12,8 @@ import {forEach} from "@angular/router/src/utils/collection";
 export class AchievementsComponent implements OnInit {
 
   achievements: Array<Achievement> = new Array<Achievement>();
-  headElements = ['Naam', 'Score', 'Omschrijving', 'Behaald op'];
+  // headElements = ['Naam', 'Score', 'Omschrijving', 'Behaald op'];
+  headElements = ['Naam', 'Omschrijving', 'Behaald op'];
   gehaald: Map<number, String> = new Map<number, String>()
 
   constructor(private storage: LocalStorageService, private achievementService: AchievementServiceService) {
