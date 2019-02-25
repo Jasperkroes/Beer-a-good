@@ -39,7 +39,20 @@ export class UserFormComponent implements OnInit{
     this.userService.saveUser(this.model).subscribe();
   }
 
+  alterUser() {
+    if (this.model.naam.length > 50) {
+      this.model.naam = this.model.naam.substring(0, 50);
+    }
+    if (this.model.username.length > 50) {
+      this.model.username = this.model.username.substring(0, 50);
+    }
+    if (this.model.password.length > 50) {
+      this.model.password = this.model.password.substring(0, 50);
+    }
+  }
+
   verifyNewUser(username: String) {
+    this.alterUser();
     this.userService.findUserByUserName(username).subscribe(
       result => {
         if(result.id <= 0) {

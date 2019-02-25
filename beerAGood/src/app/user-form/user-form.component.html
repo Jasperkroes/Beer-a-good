@@ -8,7 +8,7 @@
         <input type="text" class="form-control" id="naam"
                required
                [(ngModel)]="model.naam" name="naam"
-               #naam="ngModel" placeholder="naam">
+               #naam="ngModel" placeholder="naam (max 50 karakters)">
         <div [hidden]="naam.valid || naam.pristine"
              class="alert alert-danger">
           Naam is verplicht
@@ -26,7 +26,7 @@
       <div class="form-group">
       <label for="username">Gebruikersnaam</label>
       <input type="text" class="form-control" id="username" required
-             [(ngModel)]="model.username" name="username" #username="ngModel" placeholder="gebruikersnaam">
+             [(ngModel)]="model.username" name="username" #username="ngModel" placeholder="gebruikersnaam (max 50 karakters)">
       <div [hidden]="username.valid || username.pristine"
            class="alert alert-danger">
         Username is verplicht
@@ -34,7 +34,7 @@
         <div class="form-group">
           <label for="password">Wachtwoord</label>
           <input type="password" class="form-control" id="password" required
-                 [(ngModel)]="model.password" name="password" #password="ngModel" placeholder="wachtwoord">
+                 [(ngModel)]="model.password" name="password" #password="ngModel" placeholder="wachtwoord (max 50 karakters)">
           <div [hidden]="password.valid || password.pristine"
                class="alert alert-danger">
             Password is verplicht
