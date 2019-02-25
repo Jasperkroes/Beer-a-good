@@ -6,7 +6,7 @@
 
 <div routerLink="../achievements">
   <br>
-
+  <!--Todo: eventueel met achievementnaam en achievement img, hangt af van achievementCheck-->
   <p *ngFor="let alert of alerts" >
     <ngb-alert id="alertBox" [type]="alert.type" (close)="close(alert)" >{{ alert.message }} {{onAudioPlay()}}
       <img src="../../assets/achImages/imageedit_7_5760120604.png" width="15%">
@@ -14,6 +14,7 @@
   </p>
 </div>
 
+<!--Todo: eventueel een apart component van maken?-->
 <audio #audioOption>
   <source src='../../assets/achImages/pcmouseclick1.mp3' type="audio/mp3">
 </audio>

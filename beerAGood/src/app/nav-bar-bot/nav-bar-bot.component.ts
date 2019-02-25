@@ -18,11 +18,11 @@ const ALERTS: Alert[] = [
   styleUrls: ['./nav-bar-bot.component.css']
 })
 export class NavBarBotComponent implements OnInit {
-  // Todo: Deze wordt true als er een achievement is gehaald in de achievementCheck(), Achieved is +1 als achievementCheck() true is.
+  // Todo: Deze wordt true als er een achievement is gehaald in de achievementCheck() en er geen andere achievements zijn.
   show = false;
-  // Todo: +2 als er meerdere achievements gehaald zijn.
+  // Todo indien achieved 0 is is het niet mogelijk te klikken op de alertButton. Achieved is +1 als achievementCheck() true is.
+  //+2 als er meerdere achievements gehaald zijn.
   achieved = 1;
-
 
   constructor() { }
   alerts: Alert[];
@@ -36,6 +36,7 @@ export class NavBarBotComponent implements OnInit {
 
   close(alert: Alert) {
     this.alerts.splice(this.alerts.indexOf(alert), 1);
+    //Todo: weg klikken van de achievement verlaagt dus achieved met 1.
     this.achieved -=1;
   }
 
