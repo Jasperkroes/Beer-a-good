@@ -58,8 +58,12 @@ export class AchievementServiceService {
 
   putAchievement(result: Achievement) {
     if(result.id>0) {
-      this.http.put<any>('http://localhost:8080/user/'+this.storage.getStoredUser().id+'/achievement/'+result.id,
-        Date()).pipe().subscribe();
+      this.checkGehaald(result.id).subscribe( ua => {
+        if (ua.datumBehaald === '-') {
+          this.http.put<any>('http://localhost:8080/user/'+this.storage.getStoredUser().id+'/achievement/'+result.id,
+            Date()).pipe().subscribe();
+        }
+      });
     }
   }
 
