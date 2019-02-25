@@ -26,28 +26,16 @@
     <label>Datum</label><br>
     <input type="date" #datum>
     <br>
+    <br>
 
-    <div class="form-group">
-      <br>
-      <label for="exampleFormControlSelect2">Locatie</label>
-
-      <select multiple class="form-control" id="exampleFormControlSelect2" #locatie>
-        <option>Nederland</option>
-        <option>Belgie</option>
-        <option>Duitsland</option>
-        <option>Rest van Europa</option>
-        <option>Midden-Oosten</option>
-        <option>Oceanie</option>
-        <option>Azie</option>
-        <option>Noord-Amerika</option>
-        <option>Midden-Amerika</option>
-        <option>Zuid-Amerika</option>
-      </select>
-    </div>
+    <label>Locatie</label><br>
+    <select [(ngModel)]="selectedLocatie" name="locatie" #locatie>
+      <option *ngFor="let locatie of locaties" [ngValue]="locatie">{{locatie.naam}}</option>
+    </select>
 
   </form>
 <br>
-  <button type="button" class="btn btn-primary" id="buttonStars" type="submit" (click)="saveRate(omschrijving.value, datum.value, locatie.value)">Bevestig</button>
+  <button type="button" class="btn btn-primary" id="buttonStars" type="submit" (click)="saveRate(omschrijving.value, datum.value, selectedLocatie.naam)">Bevestig</button>
   <br>
   <label type="label" class="lbl lbl-primary" [hidden]="!invalid">Vul alle velden in.</label>
 </div>

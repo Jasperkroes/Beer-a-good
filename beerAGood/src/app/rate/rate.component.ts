@@ -3,6 +3,8 @@ import {RateService} from "../rate.service";
 import {Rate} from "../Rate";
 import {LocalStorageService} from "../LocalStorageService";
 import {AchievementServiceService} from "../achievement-service.service";
+import {LocatieService} from "../locatie.service";
+import {Locatie} from "../Locatie";
 
 @Component({
   selector: 'app-rate',
@@ -13,8 +15,10 @@ export class RateComponent implements OnInit {
   model = new Rate(0,3,'','','', this.storage.getStoredUser(), this.storage.getStoredBier());
   submitted = false;
   invalid = false;
+  selectedLocatie: Locatie;
+  locaties: Locatie[];
 
-  constructor(private rateService: RateService, private  storage: LocalStorageService, private achievementService: AchievementServiceService) { }
+  constructor(private rateService: RateService, private  storage: LocalStorageService, private achievementService: AchievementServiceService, private locatieService: LocatieService) { }
 
   onSubmit() {
     this.submitted = true;
@@ -48,7 +52,24 @@ export class RateComponent implements OnInit {
     })
   }
 
+  getAllLocaties() {
+    this.locatieService.findAll().subscribe(
+      locaties => {
+        this.locaties = locaties.sort((a,b) => {
+          if (a.naam > b.naam) {
+            return 1;
+          }
+          return -1;
+        })
+      },
+      err => {
+        console.log(err);
+      }
+    );
+  }
+
   ngOnInit(): void {
+    this.getAllLocaties();
   }
 
 }
