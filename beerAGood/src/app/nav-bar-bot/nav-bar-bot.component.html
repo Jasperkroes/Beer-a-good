@@ -1,5 +1,5 @@
 <div>
-  <button id="alertButton" class="btn btn-primary btn-lg" (click)="reset()" [hidden]="achieved===0">
+  <button id="alertButton" class="btn btn-primary btn-lg" (click)="reset()" [hidden]="storage.getItem('newAchievement')==='1'">
     <span class="badge badge-light" style="color: #ffc500; background-color: white" >{{achieved}}</span>
   </button>
 </div>
@@ -14,7 +14,6 @@
   </p>
 </div>
 
-<!--Todo: eventueel een apart component van maken?-->
 <audio #audioOption>
   <source src='../../assets/achImages/pcmouseclick1.mp3' type="audio/mp3">
 </audio>

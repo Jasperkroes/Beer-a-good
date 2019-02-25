@@ -3,6 +3,8 @@ import {UserServiceService} from "../user-service.service";
 import {User} from "../User";
 import {LocalStorageService} from "../LocalStorageService";
 import sha1 from "sha1";
+import {AchievementServiceService} from "../achievement-service.service";
+import {Achievement} from "../Achievement";
 
 @Component({
   selector: 'app-login',
@@ -15,7 +17,7 @@ export class LoginComponent implements OnInit {
   loggedInCorrect = false;
   loggedInIncorrect = false;
 
-  constructor(private userService: UserServiceService, private storage: LocalStorageService) { }
+  constructor(private userService: UserServiceService, private storage: LocalStorageService, private achievementServiceService: AchievementServiceService) { }
 
   ngOnInit() {
   }
@@ -37,5 +39,17 @@ export class LoginComponent implements OnInit {
   resetFlags() {
     this.loggedInIncorrect = false;
     this.loggedInCorrect = false;
+  }
+
+  getCompletedAchievements() {
+    var behaaldeAchievementIds = new Array<Achievement>();
+    this.achievementServiceService.findAll().subscribe(result => {
+      result.forEach(achievement => {
+        this.achievementServiceService.checkGehaald(achievement.id).subscribe(ua => {
+          behaaldeAchievementIds.push(ua.achievement);
+        })
+      });
+    });
+    this.storage.setBehaaldeAchievements(behaaldeAchievementIds);
   }
 }

@@ -3,6 +3,7 @@ import {LocalStorageService} from "../LocalStorageService";
 import {Achievement} from "../Achievement";
 import {AchievementServiceService} from "../achievement-service.service";
 import {forEach} from "@angular/router/src/utils/collection";
+import {filter} from "rxjs/operators";
 
 @Component({
   selector: 'app-achievements',
@@ -16,13 +17,14 @@ export class AchievementsComponent implements OnInit {
   // headElements = ['Naam', 'Score', 'Omschrijving', 'Behaald op'];
   headElements = ['Naam', 'Omschrijving', 'Behaald op'];
   gehaald: Map<number, String> = new Map<number, String>();
-  behaaldeAchievements: Array<Achievement> = new Array<Achievement>();
+  behaaldeAchievements: Array<Achievement>;
   nietBehaaldeAchievements: Array<Achievement> = new Array<Achievement>();
 
   constructor(private storage: LocalStorageService, private achievementService: AchievementServiceService) {
   }
 
   ngOnInit() {
+    this.behaaldeAchievements = this.storage.getBehaaldeAchievementIds();
     this.findAll();
   }
 
@@ -42,7 +44,7 @@ export class AchievementsComponent implements OnInit {
       if(!this.behaaldeAchievements.includes(a)) {
         this.achievementService.checkGehaald(a.id).subscribe(result => {
           this.gehaald.set(a.id, result.datumBehaald);
-          if (result.datumBehaald != '-') {
+          if (result.datumBehaald != '-' && !this.behaaldeAchievements.includes(a)) {
             this.behaaldeAchievements.push(a);
           }
         });

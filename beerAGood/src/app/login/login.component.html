@@ -14,7 +14,7 @@
 </form>
 </div>
 <div [hidden]="!loggedInCorrect">
-  <button class="btn btn-lg btn-primary btn-block" type="submit" routerLink="homepage"> Continue </button>
+  <button class="btn btn-lg btn-primary btn-block" type="submit" routerLink="homepage" (click)="getCompletedAchievements()"> Continue </button>
 </div>
 <div [hidden]="!loggedInIncorrect">
   <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="resetFlags()"> Incorrect login go back </button>

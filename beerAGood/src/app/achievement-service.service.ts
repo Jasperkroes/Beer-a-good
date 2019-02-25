@@ -25,41 +25,43 @@ export class AchievementServiceService {
 
   checkAchievements(achievements: Array<Achievement>) {
     achievements.forEach(a => {
-      if (a.naam === 'De Nullpointer') {
-        this.checkAlcoholVrij().subscribe(
-          (result: Achievement) => {
-            this.putAchievement(result)
-          }
-        );
-      }
-      if (a.naam === 'De Koning') {
-        this.checkKoningsdag().subscribe(
-          (result: Achievement) => {
-            this.putAchievement(result);
-          }
-        );
-      }
-      if (a.naam === '5') {
-        this.checkVijfVerschillende().subscribe(
-          (result: Achievement) => {
-            this.putAchievement(result);
-          }
-        );
-      }
-      if (a.naam === 'Happy new beer') {
-        this.checkYear().subscribe(
-          (result: Achievement) => {
-            this.putAchievement(result);
-          }
-        );
-      }
+        if (a.naam === 'De Nullpointer') {
+          this.checkAlcoholVrij().subscribe(
+            (result: Achievement) => {
+              this.putAchievement(result)
+            }
+          );
+        }
+        if (a.naam === 'De Koning') {
+          this.checkKoningsdag().subscribe(
+            (result: Achievement) => {
+              this.putAchievement(result);
+            }
+          );
+        }
+        if (a.naam === '5') {
+          this.checkVijfVerschillende().subscribe(
+            (result: Achievement) => {
+              this.putAchievement(result);
+            }
+          );
+        }
+        if (a.naam === 'Happy new beer') {
+          this.checkYear().subscribe(
+            (result: Achievement) => {
+              this.putAchievement(result);
+            }
+          );
+        }
+
     });
   }
 
   putAchievement(result: Achievement) {
-    if(result.id>0) {
+    if(result.id>0 && !this.storage.getBehaaldeAchievementIds().includes(result)) {
       this.http.put<any>('http://localhost:8080/user/'+this.storage.getStoredUser().id+'/achievement/'+result.id,
         Date()).pipe().subscribe();
+      this.storage.setItem('newAchievement', '1');
     }
   }
 
