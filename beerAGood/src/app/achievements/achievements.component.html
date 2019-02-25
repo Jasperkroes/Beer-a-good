@@ -5,13 +5,18 @@
       <div class="sidebar-sticky">
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link" routerLink="../achievementsBehaald">
+            <a class="nav-link" (click)="achievements = behaaldeAchievements">
               Behaalde achievements <span class="sr-only">(current)</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="../achievementsNietBehaald">
+            <a class="nav-link" (click)="showNietBehaald()">
               Niet behaalde achievements
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="achievements = allAchievements">
+              Alle achievements
             </a>
           </li>
         </ul>

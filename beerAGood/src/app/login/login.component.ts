@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {UserServiceService} from "../user-service.service";
 import {User} from "../User";
 import {LocalStorageService} from "../LocalStorageService";
+import sha1 from "sha1";
 
 @Component({
   selector: 'app-login',
@@ -20,8 +21,8 @@ export class LoginComponent implements OnInit {
   }
 
 
-  validateUser(username: String, password: String) {
-    this.userService.findUser(username, password).subscribe(
+  validateUser(username: string, password: string) {
+    this.userService.findUser(username, sha1(password)).subscribe(
       result => {
         if (result.id > 0) {
           this.loggedInCorrect = true;

@@ -34,7 +34,7 @@
         <div class="form-group">
           <label for="password">Wachtwoord</label>
           <input type="password" class="form-control" id="password" required
-                 [(ngModel)]="model.password" name="password" #password="ngModel" placeholder="wachtwoord (max 50 karakters)">
+                 [(ngModel)]="wachtwoord" name="password" #password="ngModel" placeholder="wachtwoord (max 50 karakters)">
           <div [hidden]="password.valid || password.pristine"
                class="alert alert-danger">
             Password is verplicht
@@ -64,7 +64,7 @@
     </div>
     <div class="row">
       <div class="col-xs-3">Wachtwoord</div>
-      <div class="col-xs-9" type="password">{{ model.password}}</div>
+      <div class="col-xs-9" type="password">{{wachtwoord}}</div>
     </div>
     <br>
     <button class="btn btn-primary" routerLink="" type="submit" (click)="saveUser()">Oké</button>
