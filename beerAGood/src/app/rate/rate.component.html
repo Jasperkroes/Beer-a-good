@@ -1,6 +1,7 @@
 <app-navbar></app-navbar>
 <app-nav-bar-bot></app-nav-bar-bot>
 <div [hidden]="submitted">
+  <label>Biertje</label><br>
   <app-bier-list></app-bier-list>
 
   <div>
@@ -19,7 +20,7 @@
 
   <form>
     <label>Omschrijving</label>
-    <input type="text" class="form-control" required #omschrijving>
+    <textarea class="form-control" required #omschrijving placeholder="Omschrijving (max 250 karakters)"></textarea>
     <br>
     <br>
     <label>Datum</label><br>
