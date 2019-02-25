@@ -15,7 +15,7 @@ import {UserAchievement} from "./UserAchievement";
 })
 export class AchievementServiceService {
 
-  constructor(private http: HttpClient, private storage: LocalStorageService, private userService: UserServiceService) { }
+  constructor(private http: HttpClient, private storage: LocalStorageService) { }
 
   findAll(): Observable<Achievement[]>  {
     return this.http.get<any>('http://localhost:8080/achievement').pipe(
