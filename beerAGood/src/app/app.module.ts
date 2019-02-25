@@ -17,7 +17,6 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavBarBotComponent } from './nav-bar-bot/nav-bar-bot.component';
-import { LocatieListComponent } from './locatie-list/locatie-list.component';
 
 @NgModule({
   declarations: [
@@ -30,8 +29,7 @@ import { LocatieListComponent } from './locatie-list/locatie-list.component';
     AchievementsComponent,
     GeschiedenisComponent,
     NavbarComponent,
-    NavBarBotComponent,
-    LocatieListComponent
+    NavBarBotComponent
   ],
   imports: [
     BrowserModule,

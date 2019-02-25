@@ -29,10 +29,13 @@
     <br>
 
     <label>Locatie</label><br>
-   <app-locatie-list></app-locatie-list>
+    <select [(ngModel)]="selectedLocatie" name="locatie" #locatie>
+      <option *ngFor="let locatie of locaties" [ngValue]="locatie">{{locatie.naam}}</option>
+    </select>
+
   </form>
 <br>
-  <button type="button" class="btn btn-primary" id="buttonStars" type="submit" (click)="saveRate(omschrijving.value, datum.value, locatie.value)">Bevestig</button>
+  <button type="button" class="btn btn-primary" id="buttonStars" type="submit" (click)="saveRate(omschrijving.value, datum.value, selectedLocatie.naam)">Bevestig</button>
   <br>
   <label type="label" class="lbl lbl-primary" [hidden]="!invalid">Vul alle velden in.</label>
 </div>

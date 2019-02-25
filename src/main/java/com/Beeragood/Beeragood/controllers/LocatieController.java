@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,11 +19,11 @@ public class LocatieController {
     @Autowired  private LocatieService locatieService;
 
     //curl -H "Content-Type: application/json" -X POST -d '{"id": 0, "task", "description","date": "taskTest"}' http://localhost:8080/locatie
-    @ResponseBody
-    @RequestMapping(value = "/locatie", method = RequestMethod.POST)
-    public int create(@RequestBody Locatie locatie) {
-        return locatieService.save(locatie).getId();
-    }
+//    @ResponseBody
+//    @RequestMapping(value = "/locatie", method = RequestMethod.POST)
+//    public int create(@RequestBody Locatie locatie) {
+//        return locatieService.save(locatie).getId();
+//    }
 
     //curl -H "Content-Type: application/json" -X PUT -d '{"id": 1, "task", "description","date": "taskTest"}' http://localhost:8080/locatie/1
     @ResponseBody
@@ -56,5 +57,18 @@ public class LocatieController {
     public String page() {
         return "locatie";
     }
-}
+
+    @ResponseBody
+    @RequestMapping(value = "/locatie", method = RequestMethod.POST)
+    public int create(@RequestBody ArrayList<Locatie> locaties) {
+
+            for (Locatie locatie: locaties) {
+                locatieService.save(locatie);
+            }
+            return locaties.size();
+        }
+
+
+    }
+
 

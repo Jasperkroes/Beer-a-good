@@ -12,6 +12,7 @@ public class Rate {
     private int cijfer;
     private String omschrijving;
     private String datum;
+//    Todo: rate heeft welke locatie? Locatie is nu een .java file
     private String locatie;
 
     @ManyToOne
