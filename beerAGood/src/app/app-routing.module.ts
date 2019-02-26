@@ -7,6 +7,7 @@ import {HomepageComponent} from "./homepage/homepage.component";
 import {RateComponent} from "./rate/rate.component";
 import {GeschiedenisComponent} from "./geschiedenis/geschiedenis.component";
 import {AchievementsComponent} from "./achievements/achievements.component";
+import {BierFormComponent} from "./bier-form/bier-form.component";
 
 
 const routes: Routes = [
@@ -16,7 +17,8 @@ const routes: Routes = [
   {path: 'homepage', component: HomepageComponent},
   {path: 'rate', component: RateComponent},
   {path: 'geschiedenis', component: GeschiedenisComponent},
-  {path: 'achievements', component: AchievementsComponent}
+  {path: 'achievements', component: AchievementsComponent},
+  {path: 'admin/bier', component: BierFormComponent}
 ];
 
 @NgModule({

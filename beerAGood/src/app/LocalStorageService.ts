@@ -26,5 +26,4 @@ export class LocalStorageService {
   public getStoredBier(): Bier {
     return this.storage.get('bier');
   }
-
 }

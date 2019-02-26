@@ -45,6 +45,16 @@ public class BierController {
         return (List<Bier>)bierService.findAll();
     }
 
+    @ResponseBody
+    @RequestMapping(value = "/bier", method = RequestMethod.POST)
+    public Bier findBierByNaam(@RequestBody Bier bier) {
+        Iterable<Bier> it = bierService.findByNaam(bier.getNaam());
+        if( it.iterator().hasNext() ) {
+            return it.iterator().next();
+        }
+        return bier;
+    }
+
     //curl  http://localhost:8080/bier/1
     @ResponseBody
     @RequestMapping(value = "/bier/{id}", method = RequestMethod.GET)

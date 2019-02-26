@@ -17,6 +17,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavBarBotComponent } from './nav-bar-bot/nav-bar-bot.component';
+import { BierFormComponent } from './bier-form/bier-form.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { NavBarBotComponent } from './nav-bar-bot/nav-bar-bot.component';
     AchievementsComponent,
     GeschiedenisComponent,
     NavbarComponent,
-    NavBarBotComponent
+    NavBarBotComponent,
+    BierFormComponent
   ],
   imports: [
     BrowserModule,

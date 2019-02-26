@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   user: User;
   loggedInCorrect = false;
   loggedInIncorrect = false;
+  loggedInAsAdmin = false;
 
   constructor(private userService: UserServiceService, private storage: LocalStorageService) { }
 
@@ -22,6 +23,10 @@ export class LoginComponent implements OnInit {
 
 
   validateUser(username: string, password: string) {
+    if (username === 'baliemedewerker' && password === 'heinekengroen') {
+      this.loggedInAsAdmin = true;
+      return;
+    }
     this.userService.findUser(username, sha1(password)).subscribe(
       result => {
         if (result.id > 0) {
