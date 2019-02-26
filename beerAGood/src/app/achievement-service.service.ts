@@ -60,6 +60,13 @@ export class AchievementServiceService {
           }
         );
       }
+      if (a.naam === 'De Belgische Zot') {
+        this.checkInBelgie().subscribe(
+          (result: Achievement) => {
+            this.putAchievement(result);
+          }
+        );
+      }
     });
   }
 
@@ -100,6 +107,12 @@ export class AchievementServiceService {
 
   checkGenie() {
     return this.http.get<any>('http://localhost:8080/achievementGenie/'+this.storage.getStoredUser().id).pipe(
+      catchError(this.handleError<Achievement>(`Genie`))
+    );
+  }
+
+  checkInBelgie() {
+    return this.http.get<any>('http://localhost:8080/achievementInBelgie/'+this.storage.getStoredUser().id).pipe(
       catchError(this.handleError<Achievement>(`findAll`))
     );
   }
