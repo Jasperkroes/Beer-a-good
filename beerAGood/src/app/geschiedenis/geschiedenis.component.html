@@ -1,6 +1,13 @@
 <app-navbar></app-navbar>
-<div class="row">
+<div [hidden]="ratings.length>0">
+  <h1>Geschiedenis</h1>
+  <p>Er is nog geen bier beoordeeld, kies voor "Rate" om een nieuw gedronken biertje te beoordelen.</p>
+  <img src="https://www.nederlandsebiercultuur.nl/images/site/home/cultuur.jpg" style="width: 100%">
+</div>
+
+  <div class="row">
   <div class="col-xs-6" *ngFor="let rating of ratings">
+
     <h1>{{rating.bier.naam}}</h1>
     <h4>{{rating.datum}}<br>{{rating.locatie}}</h4>
     <div class="images">
