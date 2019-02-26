@@ -32,6 +32,13 @@ export class AchievementServiceService {
           }
         );
       }
+      if (a.naam === 'De Genie') {
+        this.checkGenie().subscribe(
+          (result: Achievement) => {
+            this.putAchievement(result);
+          }
+        )
+      }
       if (a.naam === 'De Koning') {
         this.checkKoningsdag().subscribe(
           (result: Achievement) => {
@@ -95,6 +102,12 @@ export class AchievementServiceService {
   checkYear() {
     return this.http.get<any>('http://localhost:8080/achievementYear/'+this.storage.getStoredUser().id).pipe(
       catchError(this.handleError<Achievement>(`findAll`))
+    );
+  }
+
+  checkGenie() {
+    return this.http.get<any>('http://localhost:8080/achievementGenie/'+this.storage.getStoredUser().id).pipe(
+      catchError(this.handleError<Achievement>(`Genie`))
     );
   }
 
