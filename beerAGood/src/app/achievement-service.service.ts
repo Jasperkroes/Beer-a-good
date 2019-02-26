@@ -9,7 +9,6 @@ import {User} from "./User";
 import {UserServiceService} from "./user-service.service";
 import {UserAchievement} from "./UserAchievement";
 
-
 @Injectable({
   providedIn: 'root'
 })
