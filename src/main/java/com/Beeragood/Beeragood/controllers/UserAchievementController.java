@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -47,4 +48,24 @@ public class UserAchievementController {
 		Optional<UserAchievement> ua = userAchievementService.findById(new UserAchievementIdentity(user.get(), achievement.get()));
 		return ua.map(userAchievement -> ua.get()).orElse(uaMock);
 	}
+
+	@ResponseBody
+	@RequestMapping(value = "/findNewAchievement/{uid}", method = RequestMethod.GET)
+	public boolean findNewAchievement(@PathVariable int uid) {
+		List<UserAchievement> lua2 = userAchievementService.achievementsByGezien(uid);
+		return lua2.size()>0;
+	}
+
+	@ResponseBody
+	@RequestMapping(value = "/allAchievementsGezien/{uid}", method = RequestMethod.PUT)
+	public List<UserAchievement> userAchievementIsGezien(@PathVariable int uid){
+		List<UserAchievement> lua = userAchievementService.getAllUserAchievementsFromUser(uid);
+		for (UserAchievement ua: lua) {
+			UserAchievement newua = new UserAchievement(new UserAchievementIdentity(ua.getUser(), ua.getAchievement()),ua.getDatumBehaald());
+			newua.setGezien(true);
+			userAchievementService.save(newua);
+		}
+		return userAchievementService.getAllUserAchievementsFromUser(uid);
+	}
+
 }

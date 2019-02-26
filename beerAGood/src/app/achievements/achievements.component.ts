@@ -24,6 +24,7 @@ export class AchievementsComponent implements OnInit {
 
   ngOnInit() {
     this.findAll();
+    this.achievementService.setAllGezien().subscribe();
   }
 
   private findAll() {

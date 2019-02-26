@@ -14,12 +14,14 @@ public class UserAchievement implements Serializable {
 	private UserAchievementIdentity userAchievementIdentity;
 
 	private String datumBehaald;
+	private boolean gezien;
 
 	public UserAchievement() {}
 
 	public UserAchievement(UserAchievementIdentity userAchievementIdentity, String datumBehaald) {
 		this.userAchievementIdentity = userAchievementIdentity;
 		this.datumBehaald = datumBehaald;
+		this.gezien = false;
 	}
 
 	public User getUser() {
@@ -28,6 +30,14 @@ public class UserAchievement implements Serializable {
 
 	public void setUser(User user) {
 		this.userAchievementIdentity.setUser(user);
+	}
+
+	public boolean isGezien() {
+		return gezien;
+	}
+
+	public void setGezien(boolean gezien) {
+		this.gezien = gezien;
 	}
 
 	public void setAchievement(Achievement achievement) {
