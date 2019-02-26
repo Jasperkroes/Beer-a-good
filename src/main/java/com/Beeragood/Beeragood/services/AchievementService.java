@@ -22,6 +22,9 @@ public interface AchievementService extends CrudRepository<Achievement, Integer>
 	@Query(value = "select count(*) from rate where user_id = :id and datum < date_sub(current_date, interval 1 year)", nativeQuery = true)
 	int findYear(int id);
 
+	@Query(value = "select count(*) from rate where user_id = :id and locatie = 'Belgie'", nativeQuery = true)
+	int findInBelgie(int id);
+
 	Iterable<Achievement> findByNaam(String naam);
 
 	@Query(value = "select * from user where id = :uid", nativeQuery = true)
