@@ -99,4 +99,8 @@ export class AchievementServiceService {
       return of(result as T);
     };
   }
+
+  isNewAchievement() {
+    
+  }
 }

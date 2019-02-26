@@ -1,4 +1,5 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {AchievementServiceService} from "../achievement-service.service";
 
 interface Alert {
   type: string;
@@ -24,9 +25,10 @@ export class NavBarBotComponent implements OnInit {
   //+2 als er meerdere achievements gehaald zijn.
   achieved = 1;
 
-  constructor() { }
+  constructor(private achievementService: AchievementServiceService) { }
   alerts: Alert[];
   ngOnInit() {
+    this.achievementService.isNewAchievement();
   }
 
   reset() {
