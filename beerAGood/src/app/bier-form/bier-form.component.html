@@ -1,0 +1,80 @@
+<div class="container">
+  <button class="btn btn-lg btn-primary btn-block" type="submit" routerLink="">Ga terug</button>
+  <div [hidden]="submitted">
+    <h1>Bier toevoeg formulier</h1>
+    <form (ngSubmit)="verifyNewBier(naam.value)" #bierForm="ngForm">
+      <div class="form-group">
+        <label for="naam">Naam</label>
+        <input type="text" class="form-control" id="naam"
+               required
+               [(ngModel)]="bier.naam" name="naam"
+               #naam="ngModel" placeholder="naam (max 50 karakters)">
+        <div [hidden]="naam.valid || naam.pristine"
+             class="alert alert-danger">
+          Naam is verplicht
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="afkomst">Afkomst</label>
+        <input type="text" class="form-control" id="afkomst"
+               required
+               [(ngModel)]="bier.afkomst" name="afkomst"
+               #afkomst="ngModel" placeholder="Afkomst">
+        <div [hidden]="afkomst.valid || afkomst.pristine"
+             class="alert alert-danger">
+          Afkomst is verplicht
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="alcoholPercentage">Alcohol Percentage</label>
+        <input type="number" class="form-control" id="alcoholPercentage"
+               required
+               [(ngModel)]="bier.alcoholPercentage" name="alcoholPercentage"
+               #alcoholPercentage="ngModel" placeholder="Alcohol Percentage">
+        <div [hidden]="alcoholPercentage.valid || alcoholPercentage.pristine" class="alert alert-danger">
+          AlcoholPercentage is verplicht
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="foto">Link naar foto</label>
+        <input type="text" class="form-control" id="foto"
+               required
+               [(ngModel)]="bier.foto" name="foto"
+               #foto="ngModel" placeholder="foto linkje">
+        <div [hidden]="foto.valid || foto.pristine" class="alert alert-danger">
+          Foto link is verplicht
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-success" [disabled]="!bierForm.form.valid" (click)="verifyNewBier(naam.value)">Bevestig</button>
+      <button type="button" class="btn btn-default" (click)="newBier(); bierForm.reset()">Leeg velden</button>
+    </form>
+  </div>
+
+  <div [hidden]="!submitted">
+    <h2>Je hebt het volgende bevestigd:</h2>
+    <div class="row">
+      <div class="col-xs-3">Naam</div>
+      <div class="col-xs-9">{{ bier.naam }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Afkomst</div>
+      <div class="col-xs-9">{{ bier.afkomst}}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Alcoholpercentage</div>
+      <div class="col-xs-9">{{ bier.alcoholPercentage}}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Foto</div>
+      <div class="col-xs-9"><img src='{{bier.foto}}' style="width: 150px; height: 300px"></div>
+    </div>
+    <br>
+    <button class="btn btn-primary" routerLink="" type="submit" (click)="saveBier()">Oké</button>
+    <button class="btn btn-primary" (click)="submitted = false">Wijzig gebruiker</button>
+  </div>
+</div>
+
