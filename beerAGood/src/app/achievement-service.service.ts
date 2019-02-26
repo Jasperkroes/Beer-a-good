@@ -100,7 +100,9 @@ export class AchievementServiceService {
     };
   }
 
-  isNewAchievement() {
-    
+  isNewAchievement(): Observable<boolean> {
+    return this.http.get<any>('http://localhost:8080/findNewAchievement/'+this.storage.getStoredUser().id).pipe(
+      catchError(this.handleError<boolean>(`isnewachievement`))
+    );
   }
 }
