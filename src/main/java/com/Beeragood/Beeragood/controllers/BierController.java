@@ -46,8 +46,8 @@ public class BierController {
     }
 
     @ResponseBody
-    @RequestMapping(value = "/bier", method = RequestMethod.POST)
-    public Bier findBierByNaam(@RequestBody Bier bier) {
+    @RequestMapping(value = "/bierByNaam", method = RequestMethod.POST)
+    public Bier bierByNaam(@RequestBody Bier bier) {
         Iterable<Bier> it = bierService.findByNaam(bier.getNaam());
         if( it.iterator().hasNext() ) {
             return it.iterator().next();

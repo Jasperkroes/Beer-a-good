@@ -19,8 +19,8 @@ export class BierServiceService {
   }
 
   saveBier(model: Bier){
-    return this.http.post('http://localhost:8080/user', model).pipe(
-      catchError(this.handleError<Bier>(`saveuser`))
+    return this.http.post('http://localhost:8080/bier', model).pipe(
+      catchError(this.handleError<Bier>(`savebier`))
     );
   }
 
@@ -32,7 +32,7 @@ export class BierServiceService {
   }
 
   findBierByNaam(naam: string): Observable<Bier> {
-    return this.http.post<any>('http://localhost:8080/verifyBier', new Bier(0, naam, '', 0, '')).pipe(
+    return this.http.post<any>('http://localhost:8080/bierByNaam', new Bier(0, naam, '', 0, '')).pipe(
       catchError(this.handleError<Bier>(`verify`))
     );
   }
