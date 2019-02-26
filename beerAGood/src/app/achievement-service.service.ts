@@ -109,4 +109,10 @@ export class AchievementServiceService {
       catchError(this.handleError<boolean>(`isnewachievement`))
     );
   }
+
+  setAllGezien(): Observable<UserAchievement[]> {
+    return this.http.put<any>('http://localhost:8080/allAchievementsGezien/'+this.storage.getStoredUser().id,null).pipe(
+      catchError(this.handleError<UserAchievement[]>(`setAllAchievementsGezien`))
+    );
+  }
 }

@@ -52,8 +52,20 @@ public class UserAchievementController {
 	@ResponseBody
 	@RequestMapping(value = "/findNewAchievement/{uid}", method = RequestMethod.GET)
 	public boolean findNewAchievement(@PathVariable int uid) {
-		List<UserAchievement> lua = userAchievementService.achievementsByDate(uid, LocalDate.now().toString());
-		return lua.size()>0;
+		List<UserAchievement> lua2 = userAchievementService.achievementsByGezien(uid);
+		return lua2.size()>0;
+	}
+
+	@ResponseBody
+	@RequestMapping(value = "/allAchievementsGezien/{uid}", method = RequestMethod.PUT)
+	public List<UserAchievement> userAchievementIsGezien(@PathVariable int uid){
+		List<UserAchievement> lua = userAchievementService.getAllUserAchievementsFromUser(uid);
+		for (UserAchievement ua: lua) {
+			UserAchievement newua = new UserAchievement(new UserAchievementIdentity(ua.getUser(), ua.getAchievement()),ua.getDatumBehaald());
+			newua.setGezien(true);
+			userAchievementService.save(newua);
+		}
+		return userAchievementService.getAllUserAchievementsFromUser(uid);
 	}
 
 }
