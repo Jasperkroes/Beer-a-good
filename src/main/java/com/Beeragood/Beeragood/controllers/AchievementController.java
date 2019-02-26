@@ -68,4 +68,13 @@ public class AchievementController {
 		return mockAchievement;
 	}
 
+	@ResponseBody
+	@RequestMapping(value = "/achievementGenie/{id}", method = RequestMethod.GET)
+	public Achievement validateGenie(@PathVariable int id) {
+		if(achievementService.findGenie(id)>0){
+			return achievementService.findByNaam("De Genie").iterator().next();
+		}
+		return mockAchievement;
+	}
+
 }
