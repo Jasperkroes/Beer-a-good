@@ -5,6 +5,7 @@ import {LocalStorageService} from "../LocalStorageService";
 import {AchievementServiceService} from "../achievement-service.service";
 import {LocatieService} from "../locatie.service";
 import {Locatie} from "../Locatie";
+import {GeschiedenisComponent} from "../geschiedenis/geschiedenis.component";
 
 @Component({
   selector: 'app-rate',

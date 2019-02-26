@@ -30,4 +30,5 @@ export class RateService {
       catchError(this.handleError<Rate>(`query user id ratings`))
     );
   }
+
 }
