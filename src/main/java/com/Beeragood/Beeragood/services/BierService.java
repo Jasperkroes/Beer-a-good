@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface BierService extends CrudRepository<Bier, Integer > {
+	Iterable<Bier> findByNaam(String naam);
 }
