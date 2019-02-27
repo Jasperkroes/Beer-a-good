@@ -86,4 +86,31 @@ public class AchievementController {
 		return mockAchievement;
 	}
 
+	@ResponseBody
+	@RequestMapping(value = "/achievementFiesta/{id}", method = RequestMethod.GET)
+	public Achievement validateFiesta(@PathVariable int id) {
+		if(achievementService.findFiesta(id)>0){
+			return achievementService.findByNaam("Fiesta").iterator().next();
+		}
+		return mockAchievement;
+	}
+
+	@ResponseBody
+	@RequestMapping(value = "/achievementRewind/{id}", method = RequestMethod.GET)
+	public Achievement validateRewind(@PathVariable int id) {
+		if(achievementService.findRewind(id)>0){
+			return achievementService.findByNaam("Rewind Time").iterator().next();
+		}
+		return mockAchievement;
+	}
+
+	@ResponseBody
+	@RequestMapping(value = "/achievementWorld/{id}", method = RequestMethod.GET)
+	public Achievement validateAroundTheWorld(@PathVariable int id) {
+		if(achievementService.findAroundTheWorld(id)==0){
+			return achievementService.findByNaam("Around The World").iterator().next();
+		}
+		return mockAchievement;
+	}
+
 }
