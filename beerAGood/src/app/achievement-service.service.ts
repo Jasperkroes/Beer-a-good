@@ -38,6 +38,27 @@ export class AchievementServiceService {
           }
         )
       }
+      if (a.naam === 'Rewind Time') {
+        this.checkInRewindTime().subscribe(
+          (result: Achievement) => {
+            this.putAchievement(result);
+          }
+        )
+      }
+      if (a.naam === 'Fiesta') {
+        this.checkInFiesta().subscribe(
+          (result: Achievement) => {
+            this.putAchievement(result);
+          }
+        )
+      }
+      if (a.naam === 'Around The World') {
+        this.checkInAroundTheWorld().subscribe(
+          (result: Achievement) => {
+            this.putAchievement(result);
+          }
+        )
+      }
       if (a.naam === 'De Koning') {
         this.checkKoningsdag().subscribe(
           (result: Achievement) => {
@@ -113,6 +134,24 @@ export class AchievementServiceService {
   checkInBelgie() {
     return this.http.get<any>('http://localhost:8080/achievementInBelgie/'+this.storage.getStoredUser().id).pipe(
       catchError(this.handleError<Achievement>(`findAll`))
+    );
+  }
+
+  checkInRewindTime() {
+    return this.http.get<any>('http://localhost:8080/achievementRewind/'+this.storage.getStoredUser().id).pipe(
+      catchError(this.handleError<Achievement>(`rewindTime`))
+    );
+  }
+
+  checkInFiesta() {
+    return this.http.get<any>('http://localhost:8080/achievementFiesta/'+this.storage.getStoredUser().id).pipe(
+      catchError(this.handleError<Achievement>(`Fiesta`))
+    );
+  }
+
+  checkInAroundTheWorld() {
+    return this.http.get<any>('http://localhost:8080/achievementWorld/'+this.storage.getStoredUser().id).pipe(
+      catchError(this.handleError<Achievement>(`AroundTheWorld`))
     );
   }
 
