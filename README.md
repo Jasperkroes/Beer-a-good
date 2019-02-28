@@ -1,6 +1,10 @@
 # Beer-a-good
 Beer rating application
 
+presentatie:
+
+https://docs.google.com/presentation/d/10IHjGmIzc_gCiAInD0cDkqBjl8sBxlsY0HL31nOprsg/edit?usp=sharing
+
 # Class diagram
 ![](https://github.com/Jasperkroes/Beer-a-good/blob/ReadmeImages/src/main/resources/images/readme/class%20diagram.jpg)
 
